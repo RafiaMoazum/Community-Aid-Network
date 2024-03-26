@@ -6,6 +6,6 @@ const causeRouter=Router();
 
 causeRouter.post("/addCause", CauseController.addCause);
 causeRouter.get("/getAllCauses", CauseController.getAllCauses);
-
+causeRouter.get("/getSpecificCauseDetails/:id",CauseController.getSpecificCauseDetails)
 
 export default causeRouter;

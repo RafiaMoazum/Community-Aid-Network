@@ -28,6 +28,20 @@ getAllCauses: async (req,res) =>{
     res.json({
         data,
       });
+},
+
+getSpecificCauseDetails: async (req, res) => {
+    const id  = req.params.id; 
+    try {
+        const cause = await CauseModel.findByPk(id); 
+        if (!cause) {
+            return res.status(404).json({ message: "Cause not found" });
+        }
+        res.json(cause); 
+    } catch (error) {
+        console.log("Error in getting cause details:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
 }
 
 }

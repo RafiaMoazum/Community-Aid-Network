@@ -3,7 +3,11 @@ import './App.css'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import AddCausePage from './pages/AddCausePage'
+
+import CauseDetailsPage from './pages/CauseDetailsPage'
+
 import RegisterationPage from './pages/RegisterPage'
+
 
 function App() {
 
@@ -14,6 +18,7 @@ function App() {
       <Route path="/registration" element={<RegisterationPage />} />
       <Route path="/" element={<HomePage/>}/>
       <Route path="/addCausePage" element={<AddCausePage/>} />
+      <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
     </Routes>
     
     </>

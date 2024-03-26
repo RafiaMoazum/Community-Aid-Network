@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./styles/HomePage.css"
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
 
@@ -23,14 +24,17 @@ const HomePage = () => {
     },[])
     return ( 
         <>
+
         <div className="main">
             {causes.map((element) => (
+                <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>
                 <div key={element.id} className="card">
                     <p>Title: {element.title || "N/A"}</p> 
                     <p>Details: {element.details || "N/A"}</p> 
                     <p>Category: {element.category || "N/A"}</p> 
                     <p>Goal Amount: {element.goal_amount || "N/A"}</p> 
                 </div>
+                </NavLink>
             ))}
         </div>
         </>

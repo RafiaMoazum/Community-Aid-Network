@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import AddCausePage from './pages/AddCausePage'
+import RegisterationPage from './pages/RegisterPage'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
     <Header/>
     <Routes>
+      <Route path="/registration" element={<RegisterationPage />} />
       <Route path="/" element={<HomePage/>}/>
       <Route path="/addCausePage" element={<AddCausePage/>} />
     </Routes>
@@ -17,5 +19,4 @@ function App() {
     </>
   )
 }
-
 export default App

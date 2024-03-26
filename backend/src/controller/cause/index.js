@@ -21,6 +21,13 @@ addCause: async (req,res) =>{
     } catch (error) {
         console.log("Error in adding cause", error)
     }
+},
+
+getAllCauses: async (req,res) =>{
+    const data= await CauseModel.findAll();
+    res.json({
+        data,
+      });
 }
 
 }

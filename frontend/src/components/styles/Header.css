@@ -1,0 +1,19 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.NavBar ul {
+    list-style-type: none; /* Remove bullets from list */
+    margin: 0; 
+    padding: 0; 
+}
+
+.NavBar li {
+    margin: 10px; 
+}

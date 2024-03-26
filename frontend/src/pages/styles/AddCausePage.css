@@ -1,0 +1,38 @@
+#form{
+    border:1px solid black;
+    background-color: rgb(247, 242, 242);
+    width:18%;
+    /* width:250px; */
+    height:44%;
+    border-radius: 2%;
+    padding: 20px;
+    text-align: center;
+    margin-left: 38%;
+    margin-top: 7%;
+
+}
+
+#heading{
+    text-align: center;
+    font-size: 23px;
+    color: black;
+}
+
+.field{
+    border-radius: 5px;
+    padding:12px;
+    background-color: transparent;
+    border:1px solid rgb(10, 10, 10);
+    color:rgb(7, 7, 7);
+    width:87%;
+}
+
+#btn
+{
+    background-color: #007bff;
+    border-radius: 7px;
+    padding: 12px 10px;
+    width:100%;
+    margin-top: 8px;
+    border: 1px solid #007bff;
+}

@@ -8,7 +8,6 @@ const AddCausePage = () => {
         title: '',
         details: '',
         goal_amount: '',
-        
     }
 
     const validationSchema = Yup.object({
@@ -21,6 +20,7 @@ const AddCausePage = () => {
     const handleSubmit =(values, { setSubmitting }) =>{
         console.log("values", values);
         setSubmitting(false); 
+        alert("Submitted")
     }
 
     return (
@@ -39,8 +39,8 @@ const AddCausePage = () => {
                 <ErrorMessage name="details" />
                 <br />
                 <br />
-                <Field type="text" id=" goal_amount" name=" goal_amount" placeholder="Goal Amount" className="field" />
-                <ErrorMessage name=" goal_amount" />
+                <Field type="number" id="goal_amount" name="goal_amount" placeholder="Goal Amount" className="field" />
+                <ErrorMessage name="goal_amount" />
                 <br />
                 <br />
                 <button type="submit" id="btn">Add Cause</button>

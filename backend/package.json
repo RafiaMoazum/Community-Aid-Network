@@ -12,6 +12,7 @@
   "author": "Rafia Moazum",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.1",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",

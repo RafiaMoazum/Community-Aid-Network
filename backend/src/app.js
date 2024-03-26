@@ -1,14 +1,21 @@
 import Express from "express"
+import cors from "cors";
 import { connectDb } from "./db/config.js";
 import dbInit from "./db/init.js";
+import causeRouter from "./router/causeRoute.js";
 
 
 const app = Express();
 const port =3000;
-app.use(Express.json())
+app.use(Express.json());
+app.use(cors());
 
-connectDb;
+connectDb();
 dbInit().then( () => {console.log("DB Synced😀")})
+
+
+app.use(causeRouter);
+
 
 app.get("/", (req,res) =>{
     res.send("Hello World")

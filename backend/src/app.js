@@ -5,6 +5,7 @@ import cors from "cors";
 import { connectDb } from "./db/config.js";
 import dbInit from "./db/init.js";
 import causeRouter from "./router/causeRoute.js";
+import registrationRouter from './router/registerationRoute.js'; 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = Express();
@@ -20,6 +21,7 @@ connectDb();
 dbInit().then(() => { console.log("DB Synced😀") });
 
 app.use(causeRouter);
+app.use(registrationRouter); // Use the registration router here
 
 console.log('__dirname:', __dirname);
 console.log('Joined path:', path.join(__dirname, 'uploads'));

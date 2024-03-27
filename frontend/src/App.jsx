@@ -10,13 +10,16 @@ import PendingApproval from './pages/AdminPanel/PendingApproval'
 import CausesData from './pages/AdminPanel/CausesData'
 import DonationData from './pages/AdminPanel/DonationData'
 import Signup from './components/forms/registrationForm'
+import { Navbar } from 'react-bootstrap'
+import NavbarM from './components/NavBar'
 
 
 function App() {
 
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
+    <NavbarM/>
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>

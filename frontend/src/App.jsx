@@ -9,6 +9,7 @@ import AdminPanel from './pages/AdminPanel/AminPanel'
 import PendingApproval from './pages/AdminPanel/PendingApproval'
 import CausesData from './pages/AdminPanel/CausesData'
 import DonationData from './pages/AdminPanel/DonationData'
+import Signup from './components/forms/registrationForm'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
     <>
     <Header/>
     <Routes>
-      <Route path="/registration" element={<RegisterationPage />} />
+      <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>
       <Route path="/addCausePage" element={<AddCausePage/>} />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />

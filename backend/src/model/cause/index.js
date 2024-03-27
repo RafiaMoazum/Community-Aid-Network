@@ -16,6 +16,9 @@ const CauseModel = sequelize.define('Cause',{
     goal_amount:{
         type:DataTypes.INTEGER,
     }, 
+    image: {
+        type: DataTypes.STRING, 
+      },
     raised_amount:{
         type: DataTypes.INTEGER,
     }

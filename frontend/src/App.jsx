@@ -5,8 +5,7 @@ import HomePage from './pages/HomePage'
 import AddCausePage from './pages/AddCausePage'
 
 import CauseDetailsPage from './pages/CauseDetailsPage'
-
-import RegisterationPage from './pages/RegisterPage'
+import Signup from './components/forms/registrationForm'
 
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
     <>
     <Header/>
     <Routes>
-      <Route path="/registration" element={<RegisterationPage />} />
+      <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>
       <Route path="/addCausePage" element={<AddCausePage/>} />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />

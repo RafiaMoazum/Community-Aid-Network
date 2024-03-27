@@ -12,7 +12,7 @@ const AddCausePage = () => {
         details: '',
         goal_amount: '',
         category: '',
-        image: null // Add image field to state
+        image: null 
     });
 
     const initialValues = {
@@ -20,7 +20,7 @@ const AddCausePage = () => {
         details: '',
         goal_amount: '',
         category: '',
-        image: null // Initialize image field to null
+        image: null 
     }
 
     const categories = ['Education', 'Health', 'Social welfare', 'Disaster Relief', 'Community Development', 'Other']; // Available categories
@@ -42,7 +42,7 @@ const AddCausePage = () => {
             formData.append('details', values.details);
             formData.append('goal_amount', values.goal_amount);
             formData.append('category', values.category);
-            formData.append('image', values.image); // Append image to FormData
+            formData.append('image', values.image); 
 
             const res = await axios.post("http://localhost:3000/addCause", formData, {
                 headers: {

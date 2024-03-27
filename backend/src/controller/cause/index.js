@@ -10,8 +10,8 @@ addCause: async (req,res) =>{
             title:req.body.title,
             category:req.body.category,
             details:req.body.details,
-            goal_amount:req.body.goal_amount
-
+            goal_amount:req.body.goal_amount,
+            image: req.file.path,
         })
 
         res.json({

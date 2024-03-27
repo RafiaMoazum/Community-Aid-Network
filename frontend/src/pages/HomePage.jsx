@@ -29,6 +29,7 @@ const HomePage = () => {
             {causes.map((element) => (
                 <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>
                 <div key={element.id} className="card">
+                <img className="picture" src={element.image} alt="image"/>
                     <p>Title: {element.title || "N/A"}</p> 
                     <p>Details: {element.details || "N/A"}</p> 
                     <p>Category: {element.category || "N/A"}</p> 

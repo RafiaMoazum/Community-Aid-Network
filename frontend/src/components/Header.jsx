@@ -12,6 +12,8 @@ const Header = () => {
                 <li><NavLink to="/signUp" style={{ textDecoration: 'none' , color:"black"}}>SignUp</NavLink></li>
             </ul>
             <button onClick= {() => {navigate("/AddCausePage")}}style={{ textDecoration: 'none' , color:"white", backgroundColor:"green" }}>Add a Cause</button>
+            <button onClick= {() => {navigate("/AdminPanel")}}style={{ textDecoration: 'none' , color:"white", backgroundColor:"green" }}>Admin</button>
+
         </nav>
     );
 };

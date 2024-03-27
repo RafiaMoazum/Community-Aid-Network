@@ -1,6 +1,5 @@
 import { Routes,Route } from 'react-router-dom'
 import './App.css'
-import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import AddCausePage from './pages/AddCausePage'
 import CauseDetailsPage from './pages/CauseDetailsPage'
@@ -10,15 +9,15 @@ import PendingApproval from './pages/AdminPanel/PendingApproval'
 import CausesData from './pages/AdminPanel/CausesData'
 import DonationData from './pages/AdminPanel/DonationData'
 import Signup from './components/forms/registrationForm'
-import { Navbar } from 'react-bootstrap'
 import NavbarM from './components/NavBar'
+import PeopleDonated from './pages/AdminPanel/PeopleDonated'
+import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonation'
 
 
 function App() {
 
   return (
     <>
-    {/* <Header/> */}
     <NavbarM/>
     <Routes>
       <Route path="/registration" element={<Signup />} />
@@ -29,6 +28,9 @@ function App() {
       <Route path="/pendingApproval" element={<PendingApproval/>} />
       <Route path="/causesData" element={<CausesData/>} />
       <Route path="/donationData" element={<DonationData/>} />
+      <Route path="/peopleDonated" element={<PeopleDonated/>} />
+      <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
+
 
 
     </Routes>

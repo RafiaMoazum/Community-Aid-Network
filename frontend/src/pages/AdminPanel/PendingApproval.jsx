@@ -13,10 +13,12 @@ import './AdminPanel.css';
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar
-              opt1="Pending Approval"
-              opt2="Causes Data"
-              opt3="Donation Data"
-              opt4="Logout"
+             opt1="Pending Approval"
+             opt2="Causes Data"
+             opt3="Donation Data"
+             opt4="People Donated"
+             opt5="People Applied"
+             opt6="Logout"
             />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">

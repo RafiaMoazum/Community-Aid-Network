@@ -1,5 +1,5 @@
 /* Container styling */
-#form {
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
 }
 
 /* Heading styling */
-#heading {
+.heading {
     margin-bottom: 20px; /* Space below the heading */
     color: #333;
 }
@@ -33,7 +33,7 @@
 }
 
 /* Button styling */
-#btn {
+.btn {
     width: 100%;
     padding: 12px;
     margin-top: 20px; /* Space above the button */
@@ -46,7 +46,7 @@
     transition: background-color 0.3s ease; /* Smooth background color change */
 }
 
-#btn:hover {
+.btn:hover {
     background-color: #0056b3; /* Darken button on hover */
 }
 

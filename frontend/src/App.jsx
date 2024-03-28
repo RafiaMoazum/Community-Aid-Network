@@ -13,6 +13,7 @@ import NavbarM from './components/NavBar'
 import HeroSection from './components/HeroSection'
 import PeopleDonated from './pages/AdminPanel/PeopleDonated'
 import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonation'
+import SignIn from './components/forms/signInForm'
 
 
 
@@ -21,10 +22,11 @@ function App() {
   return (
     <>
     <NavbarM/>
-    <HeroSection />
+
     <Routes>
       <Route path="/registration" element={<Signup />} />
-      <Route path="/" element={<HomePage/>}/>
+      <Route path='/signin' element={<SignIn />} />
+      <Route path="/" index element={<HomePage/>}/>
       <Route path="/addCausePage" element={<AddCausePage/>} />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
       <Route path="/adminPanel" element={<AdminPanel/>} />

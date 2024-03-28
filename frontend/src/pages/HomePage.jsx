@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./styles/HomePage.css"
 
 import { NavLink } from "react-router-dom";
+import HeroSection from "../components/HeroSection";
 
 const BackendUrl = 'http://localhost:3000';
 
@@ -27,7 +28,7 @@ const HomePage = () => {
     },[])
     return ( 
         <>
-
+        <HeroSection />
         <div className="main">
             {causes.map((element) => (
                 <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>

@@ -1,0 +1,70 @@
+/* Container for the entire form to center it both vertically and horizontally */
+#signin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #f7f2f2;
+  width: 90%; /* Responsive width */
+  max-width: 400px; 
+  border-radius: 8px;
+  padding: 20px;
+  margin: 5% auto; /* Center the form */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  font-size: 28px; /* Slightly larger font size */
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px; /* Increased bottom margin */
+  font-weight: 500; /* Medium font weight */
+}
+
+.field {
+  width: 100%;
+  padding: 12px 15px; /* Adjusted padding for better spacing */
+  margin-bottom: 20px; /* Increased margin for better spacing */
+  border: 2px solid #ddd; /* Slightly thicker border with softer color */
+  border-radius: 8px; /* Rounded corners */
+  box-sizing: border-box;
+  background-color: #ffffff; /* Ensure the background is white */
+  font-size: 16px; /* Slightly larger font size for readability */
+  color: #333; /* Text color */
+}
+
+.field:focus {
+  border-color: #007bff; /* Highlight border when focused */
+  outline: none; /* Remove the default focus outline */
+}
+
+.errorMessage {
+  color: #d9534f; /* Bootstrap's danger color for consistency */
+  margin-bottom: 15px;
+  font-size: 14px; /* Smaller font size for error messages */
+}
+
+.btn {
+  width: 100%;
+  padding: 12px; /* More padding for a larger click area */
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 18px; /* Larger font size */
+  font-weight: 500; /* Medium font weight */
+}
+
+.btn:hover, .btn:focus {
+  background-color: #0056b3; /* Darker shade on hover/focus */
+  transform: translateY(-2px); /* Slight lift on hover/focus */
+}
+
+/* Add a focus state for the fields to improve user experience */
+.field:focus {
+  border-color: #66afe9; /* Light blue border for focus */
+  box-shadow: 0 0 0 3px rgba(100, 175, 233, 0.6); /* Subtle shadow outline */
+}

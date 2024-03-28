@@ -21,7 +21,11 @@ const Sidebar = (props) => {
         <div style={{ border: "1px solid black", margin: "10px 0" }}></div>
         <li><Link to={`/donationData`} style={{textDecoration: "none", color: "black"}} >{props.opt3}</Link></li>
         <div style={{ border: "1px solid black", margin: "10px 0" }}></div>
-        <li> <Link to="" style={{textDecoration: "none", color: "black"}} >{props.opt4}</Link></li>
+        <li> <Link to="/peopleDonated" style={{textDecoration: "none", color: "black"}} >{props.opt4}</Link></li>
+        <div style={{ border: "1px solid black", margin: "10px 0" }}></div>
+        <li> <Link to="/peopleAppliedForDonation" style={{textDecoration: "none", color: "black"}} >{props.opt5}</Link></li>
+        <div style={{ border: "1px solid black", margin: "10px 0" }}></div>
+        <li> <Link to="" style={{textDecoration: "none", color: "black"}} >{props.opt6}</Link></li>
         <div style={{ border: "1px solid black", margin: "10px 0" }}></div>
       </ul>
     </nav>

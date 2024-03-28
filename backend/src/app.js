@@ -6,6 +6,7 @@ import { connectDb } from "./db/config.js";
 import dbInit from "./db/init.js";
 import causeRouter from "./router/causeRoute.js";
 import registrationRouter from './router/registerationRoute.js'; 
+import pendingApprovalRouter from './router/pendingApprovalRoute.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = Express();
@@ -20,8 +21,9 @@ app.use('/uploads', Express.static(path.join(__dirname, '../uploads')));
 connectDb();
 dbInit().then(() => { console.log("DB Synced😀") });
 
+app.use(pendingApprovalRouter);
 app.use(causeRouter);
-app.use(registrationRouter); // Use the registration router here
+app.use(registrationRouter); 
 
 console.log('__dirname:', __dirname);
 console.log('Joined path:', path.join(__dirname, 'uploads'));

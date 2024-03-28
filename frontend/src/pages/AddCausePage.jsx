@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from "axios";
 import * as Yup from 'yup';
-
+import { useNavigate } from 'react-router';
 import "./styles/AddCausePage.css"
 
 const AddCausePage = () => {
-
+    const navigate=useNavigate();
     const [causeData, setCauseData] = useState({
         title: '',
         details: '',
@@ -46,7 +46,7 @@ const AddCausePage = () => {
 
             const res = await axios.post("http://localhost:3000/addCause", formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data' // Set content type for FormData
+                    'Content-Type': 'multipart/form-data' 
                 }
             });
             setCauseData(res);
@@ -58,7 +58,7 @@ const AddCausePage = () => {
 
         setSubmitting(false);
         alert("Submitted");
-
+       navigate("/");
     }
 
     return (
@@ -98,9 +98,9 @@ const AddCausePage = () => {
                         type="file"
                         id="image"
                         name="image"
-                        accept="image/*" // Allow only image files
+                        accept="image/*" 
                         onChange={(event) => {
-                            setFieldValue("image", event.currentTarget.files[0]); // Update image field value
+                            setFieldValue("image", event.currentTarget.files[0]); 
                         }}
                     />
                     <ErrorMessage name="image" />

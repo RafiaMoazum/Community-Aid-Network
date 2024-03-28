@@ -1,28 +1,33 @@
 import CauseModel from "../../model/cause/index.js";
+import PendingApprovalModel from "../../model/cause/pendingApprovalModel.js";
 
 
 const CauseController ={
 
-addCause: async (req,res) =>{
+acceptCause:async (req,res) =>{
 
     try {
-        const data = await CauseModel.create({
-            title:req.body.title,
-            category:req.body.category,
-            details:req.body.details,
-            goal_amount:req.body.goal_amount,
-            image: req.file.path,
-        })
+        const pendingCause = await PendingApprovalModel.findByPk(req.params.id);
+        if(!pendingCause){
+            return res.status(404).json({error:"Pending cause not found"});
+        }
+        
+        const cause = await CauseModel.create({
+            title: pendingCause.title,
+            category: pendingCause.category,
+             details: pendingCause.details,
+            goal_amount: pendingCause.goal_amount,
+            image: pendingCause.image,
+        });
 
-        res.json({
-            message:"Cause Added",
-            data
-        })
+        await pendingCause.destroy();
+        res.json({ message: 'Cause accepted and moved to Causes table', cause });
+
     } catch (error) {
-        console.log("Error in adding cause", error)
+        console.error('Error accepting cause:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
 },
-
 getAllCauses: async (req,res) =>{
     const data= await CauseModel.findAll();
     res.json({

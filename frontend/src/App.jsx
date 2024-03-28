@@ -21,7 +21,6 @@ function App() {
   return (
     <>
     <NavbarM/>
-    <HeroSection />
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>

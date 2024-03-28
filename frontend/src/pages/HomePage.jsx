@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./styles/HomePage.css"
+import HeroSection from "../components/HeroSection";
 
 import { NavLink } from "react-router-dom";
 
@@ -27,7 +28,7 @@ const HomePage = () => {
     },[])
     return ( 
         <>
-
+        <HeroSection />
         <div className="main">
             {causes.map((element) => (
                 <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>

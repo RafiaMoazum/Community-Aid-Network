@@ -26,6 +26,19 @@ const PendingApproval = () => {
   useEffect(() => {
     fetchPendingCauses();
   }, []);
+
+  const handleAcceptCause = async(id) =>{
+    try {
+      const response = await axios.post(`http://localhost:3000/acceptCause/${id}`);
+      console.log(response.data.message); 
+      alert("Cause Approved")
+      
+    } catch (error) {
+      console.error('Error accepting cause:', error);
+      
+    }
+  }
+
   return (
     <>
       <Container fluid>
@@ -68,7 +81,7 @@ const PendingApproval = () => {
                         <td>{element.category}</td>
                         <td>{element.goal_amount}</td>
                         <td style={{ display: "flex", gap: "5px" }}>
-                          <Button  variant="success" style={{ marginTop: "10px" }}>Accept </Button>
+                          <Button  variant="success" style={{ marginTop: "10px" }} onClick={() => handleAcceptCause(element.id)}>Accept </Button>
                           <Button  variant="danger" style={{ marginTop: "10px" }}> Reject </Button>
                         </td>
                       </tr>

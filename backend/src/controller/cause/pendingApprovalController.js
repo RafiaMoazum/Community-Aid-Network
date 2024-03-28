@@ -28,7 +28,8 @@ const PendingApprovalController ={
         res.json({
             data,
           });
-    }
+    },
+    
 }
 
 export default PendingApprovalController;

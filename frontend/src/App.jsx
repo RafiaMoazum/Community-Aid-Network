@@ -31,8 +31,6 @@ function App() {
       <Route path="/peopleDonated" element={<PeopleDonated/>} />
       <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
 
-
-
     </Routes>
     
     </>

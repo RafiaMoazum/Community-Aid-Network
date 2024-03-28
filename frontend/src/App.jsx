@@ -12,6 +12,7 @@ import DonationData from './pages/AdminPanel/DonationData'
 import Signup from './components/forms/registrationForm'
 import { Navbar } from 'react-bootstrap'
 import NavbarM from './components/NavBar'
+import HeroSection from './components/HeroSection'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <>
     {/* <Header/> */}
     <NavbarM/>
+    <HeroSection />
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>

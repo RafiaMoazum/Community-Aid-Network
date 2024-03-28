@@ -1,0 +1,82 @@
+.heroSection {
+    position: relative;
+    color: rgb(38, 37, 37);
+    background-size: cover;
+    background-position: center center;
+    height: 100vh; /* Use the full viewport height */
+    display: flex;
+    align-items: center; /* This will vertically center your content */
+  }
+  
+  .heroContent {
+    position: relative;
+    max-width: 540px;
+    padding-left: 10%; /* Adjust based on your layout */
+    z-index: 2; /* Ensures content is above the decorative image */
+  }
+  
+  .heartIcon {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block; /* Or 'block' if preferred */
+    position: absolute;
+    top: 0;
+    left: 0; /* Adjust position as needed */
+  }
+  
+  .heroTitle {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .heroSubtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .heroBtn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .heroBtn:hover {
+    background-color: darkorange;
+  }
+  
+  .decorativeImageRight {
+    background-image: url('/path/to/your/right-side-image.png'); /* Replace with the correct image path */
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%; /* Adjust width and height as necessary */
+    z-index: 1; /* Keeps the image under the text content */
+  }
+  
+  .rightSideImage {
+    width: 35vw; /* Use viewport width to control size */
+    height: auto;
+    position: absolute;
+    right:0;
+    top: 50%;
+    transform: translateY(-50%); /* Center it vertically */
+    z-index: 5; /* Below the content but above the background */
+  }
+  
+  /* Responsive styles and other customizations */
+  @media (max-width: 768px) {
+    .rightSideImage {
+      width: 80vw; /* Smaller viewports get a smaller image */
+    }
+  }
+  

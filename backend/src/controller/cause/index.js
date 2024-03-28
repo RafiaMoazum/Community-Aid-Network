@@ -1,6 +1,7 @@
 import CauseModel from "../../model/cause/index.js";
 import PendingApprovalModel from "../../model/cause/pendingApprovalModel.js";
-
+import nodemailer from "nodemailer"
+import {google} from "googleapis"
 
 const CauseController ={
 

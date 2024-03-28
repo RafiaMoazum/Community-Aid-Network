@@ -64,7 +64,6 @@ const PendingApproval = () => {
                       <th>CNIC</th>
                       <th>Address</th>
                       <th>Cause</th>
-
                       <th>Cause Category</th>
                       <th>Goal Amount</th>
                       <th>Action</th>

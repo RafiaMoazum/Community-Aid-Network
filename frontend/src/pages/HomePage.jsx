@@ -47,4 +47,4 @@ const HomePage = () => {
  
 export default HomePage;
 
-{/* <img className="picture" src={`../../../backend/${element.image}`} alt="image"/> */}
+

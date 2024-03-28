@@ -46,9 +46,6 @@ import './AdminPanel.css';
                       <td>Ali</td>
                       <td>03240410037</td>
                       
-                     
-                    
-                     
                     </tr>
                   </tbody>
                 </table>

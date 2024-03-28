@@ -23,7 +23,7 @@ return (
                 <Link to="/" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Home </b></Link>
                 <Link to="/AddCausePage" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Add Cause </b></Link>
                 <Link to="/AdminPanel" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Admin </b></Link>
-                <Link to="/signupPage" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b>Sign Up </b></Link>
+                <Link to="/registration" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Register </b></Link>
                 <Link to="/loginPage" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> | Login</b></Link>
                
             

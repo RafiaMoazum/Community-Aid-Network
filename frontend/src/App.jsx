@@ -10,8 +10,10 @@ import CausesData from './pages/AdminPanel/CausesData'
 import DonationData from './pages/AdminPanel/DonationData'
 import Signup from './components/forms/registrationForm'
 import NavbarM from './components/NavBar'
+import HeroSection from './components/HeroSection'
 import PeopleDonated from './pages/AdminPanel/PeopleDonated'
 import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonation'
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   return (
     <>
     <NavbarM/>
+    <HeroSection />
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path="/" element={<HomePage/>}/>

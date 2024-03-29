@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./styles/CauseDetails.css";
+
+const BackendUrl = "http://localhost:3000";
 
 const CauseDetailsPage = () => {
   const [causeDetails, setCauseDetails] = useState();
@@ -19,7 +22,7 @@ const CauseDetailsPage = () => {
 
   useEffect(() => {
     fetchCauseDetails();
-  },[params.id]);
+  }, [params.id]);
 
   console.log("Cause Details:", causeDetails);
 
@@ -27,16 +30,28 @@ const CauseDetailsPage = () => {
     <>
       {causeDetails ? (
         <>
-          <div>
-            <h1>Cause Details Page</h1>
-            <h1>{causeDetails.title}</h1>
-            <p>Category: {causeDetails.category}</p>
-            <p>Description:{causeDetails.details}</p>
-            <p>Goal:{causeDetails.goal_amount}</p>
+          <div className="outer" >
+            <div className="cdmainDiv1">
+              <img
+                className="picture cdDiv1"
+                src={`${BackendUrl}/${causeDetails.image}`}
+                alt="image"
+              />
+              <div className="cdDiv2">
+                <h1>{causeDetails.title}</h1>
+                <p>Category: {causeDetails.category}</p>
+                <p>Description:{causeDetails.details}</p>
+                <p>Goal:{causeDetails.goal_amount}</p>
+                <p>Raised Amount:{causeDetails.raised_amount}</p>
+
+              </div>
+            </div>
+            <div>
+            <button style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
+              Donate Now
+            </button>
+            </div>
           </div>
-          <button style={{ backgroundColor: "green", color: "white" }}>
-            Donate Now
-          </button>
         </>
       ) : (
         <>

@@ -24,9 +24,13 @@ const Signup = () => {
 
         } catch (error) {
             console.error("Registration failed:", error);
+            alert("Error in Registration")
+
         } finally {
             setSubmitting(false);
         }
+        alert("User Registered")
+
     };
 
     return (

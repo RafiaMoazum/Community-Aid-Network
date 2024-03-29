@@ -8,7 +8,7 @@ const validationSchema = Yup.object({
       .min(10, 'Contact number must be at least 10 characters')
       .max(15, 'Contact number must be at most 15 characters'),
     password: Yup.string()
-      .matches(/^(?=.*\d)(?=.*[A-Z]).{8,}$/, 'Password must contain at least one number and one uppercase letter')
+      .matches(/^(?=.*\d)(?=.*[A-Z]).{8,}$/, 'password contains at least one digit, at least one uppercase letter, and is at least 8 characters long. ')
       .required('Password is required'),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password'), null], 'Passwords must match')

@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import FormField from "../common/FormField";
 import loginValidationSchema from "./validationSchema";
 import styles from './styles.module.css'
+import signInUser from "../../../api/signInApi";
 
 
 const SignIn = () => {
@@ -11,17 +12,18 @@ const SignIn = () => {
         password: ""
     };
 
-    const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-            console.log("Data is submitted:", values);
-            // Here you would typically send the data to the server
+           const response = await signInUser(values); // Using await here requires the function to be async
+            console.log("You are Signed in", response);
             resetForm();
         } catch (error) {
-            console.log(error);
+            console.log(error.message); // Improved error logging
         } finally {
             setSubmitting(false);
         }
     };
+    
 
     return (
         <Formik

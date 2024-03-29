@@ -2,15 +2,15 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import FormField from '../common/FormField';
 import validationSchema from './validationSchema';
-import styles from './style.module.css'
-import { registerUser } from '../../../api/registrationApi';
+import styles from './style.module.css';
+import registerUser from '../../../api/registrationApi';
 
 const Signup = () => {
     const initialValues = {
         name: '',
         email: '',
         cnic: '',
-        contactNumber: '',
+        contactNo: '',
         password: '',
         confirmPassword: '',
     };
@@ -40,10 +40,10 @@ const Signup = () => {
                 <FormField name="name" type="text" placeholder="Name" />
                 <FormField name="email" type="email" placeholder="Email" />
                 <FormField name="cnic" type="text" placeholder="CNIC" />
-                <FormField name="contactNumber" type="text" placeholder="Contact Number" />
+                <FormField name="contactNo" type="text" placeholder="Contact Number" />
                 <FormField name="password" type="password" placeholder="Password" />
                 <FormField name="confirmPassword" type="password" placeholder="Confirm Password" />
-                <button type="submit" className={styles.btn}> Sign Up 5-</button>
+                <button type="submit" className={styles.btn}> Sign Up </button>
             </Form>
         </Formik>
     );

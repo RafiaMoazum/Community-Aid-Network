@@ -9,6 +9,7 @@ const Signup = () => {
     const initialValues = {
         name: '',
         email: '',
+        cnic: '',
         contactNumber: '',
         password: '',
         confirmPassword: '',
@@ -38,10 +39,11 @@ const Signup = () => {
                 <p className={styles.heading}>Sign Up</p>
                 <FormField name="name" type="text" placeholder="Name" />
                 <FormField name="email" type="email" placeholder="Email" />
+                <FormField name="cnic" type="text" placeholder="CNIC" />
                 <FormField name="contactNumber" type="text" placeholder="Contact Number" />
                 <FormField name="password" type="password" placeholder="Password" />
                 <FormField name="confirmPassword" type="password" placeholder="Confirm Password" />
-                <button type="submit" className={styles.btn}>Sign Up</button>
+                <button type="submit" className={styles.btn}> Sign Up 5-</button>
             </Form>
         </Formik>
     );

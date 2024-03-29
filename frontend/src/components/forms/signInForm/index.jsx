@@ -4,6 +4,7 @@ import FormField from "../common/FormField";
 import loginValidationSchema from "./validationSchema";
 import styles from './styles.module.css'
 import signInUser from "../../../api/signInApi";
+import { useUserAuthContext } from "../../../context/userAuthContext";
 
 
 const SignIn = () => {
@@ -11,11 +12,12 @@ const SignIn = () => {
         email: "",
         password: ""
     };
-
+    const { storeTokenInLS } = useUserAuthContext();
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-           const response = await signInUser(values); // Using await here requires the function to be async
-            console.log("You are Signed in", response);
+           const {token} = await signInUser(values); // Using await here requires the function to be async
+           storeTokenInLS(token) ;
+           console.log("You are Signed in", token);
             resetForm();
         } catch (error) {
             console.log(error.message); // Improved error logging

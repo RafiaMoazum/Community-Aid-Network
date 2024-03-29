@@ -5,8 +5,28 @@ import Row from 'react-bootstrap/esm/Row';
 import { Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import './AdminPanel.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
  const CausesData = () => {
+
+  const[causes, setCauses] = useState([]);
+  const fetchCauses = async () =>{
+    try {
+      
+     const response= await axios.get("http://localhost:3000/getAllCauses");
+     console.log("Response data:", response.data);
+     setCauses(response.data.data);
+     console.log("Causes after setting state:", causes); 
+
+    } catch (error) {
+      console.log("Error in getting Causes Data",error)
+    }
+  }
+
+  useEffect(() =>{
+       fetchCauses();
+  },[])
   return (
     <>
       <Container fluid>
@@ -35,21 +55,22 @@ import './AdminPanel.css';
                       <th>Raised Amount</th>
                       <th>Name</th>
                       <th>Phone</th>
-                    
                     </tr>
                   </thead>
                   <tbody>
+                  {causes.map((element) => (
                     <tr>
-                    
-                      <td>Fund for Education</td>
-                      <td>detailsssssssssssssss</td>
-                      <td>Education</td>
-                      <td>Rs.90000</td>
-                      <td>Rs.5000</td>
+                      <td>{element.title}</td>
+                      <td>{element.details}</td>
+                      <td>{element.category}</td>
+                      <td>{element.goal_amount}</td>
+                      <td>{element.raised_amount}</td>
                       <td>Ali</td>
                       <td>03240410037</td>
                     
                     </tr>
+                    ))}
+
                   </tbody>
                 </table>
               </div>

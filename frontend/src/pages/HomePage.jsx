@@ -5,7 +5,6 @@ import HeroSection from "../components/HeroSection";
 
 import { NavLink } from "react-router-dom";
 
-
 const BackendUrl = 'http://localhost:3000';
 
 const HomePage = () => {

@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import FormField from '../common/FormField';
 import validationSchema from './validationSchema';
 import styles from './style.module.css'
-import { registerUser } from '../../../api/registrationApi';
+import  registerUser  from '../../../api/registrationApi';
 import Background from '../../../assets/images/registeration-bg.png'
 
 const Signup = () => {
@@ -11,7 +11,7 @@ const Signup = () => {
         name: '',
         email: '',
         cnic: '',
-        contactNumber: '',
+        contactNo: '',
         password: '',
         confirmPassword: '',
     };

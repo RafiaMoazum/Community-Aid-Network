@@ -27,17 +27,15 @@ const PendingApproval = () => {
     fetchPendingCauses();
   }, []);
 
-  const handleAcceptCause = async(id) =>{
+  const handleAcceptCause = async (id) => {
     try {
       const response = await axios.post(`http://localhost:3000/acceptCause/${id}`);
-      console.log(response.data.message); 
-      alert("Cause Approved")
-      
+      console.log(response.data.message);
+      alert("Cause Approved");
     } catch (error) {
       console.error('Error accepting cause:', error);
-      
     }
-  }
+  };
 
   return (
     <>

@@ -31,7 +31,7 @@ const PendingApproval = () => {
     try {
       const response = await axios.post(`http://localhost:3000/acceptCause/${id}`);
       console.log(response.data.message);
-      alert("Cause Approved");
+      alert("Cause Approved and email sent");
     } catch (error) {
       console.error('Error accepting cause:', error);
     }

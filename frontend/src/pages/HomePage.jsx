@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./styles/HomePage.css"
 import HeroSection from "../components/HeroSection";
 import { NavLink } from "react-router-dom";
-import HeroSection from "../components/HeroSection";
+
 
 const BackendUrl = 'http://localhost:3000';
 

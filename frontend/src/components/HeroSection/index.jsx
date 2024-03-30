@@ -10,15 +10,14 @@ const HeroSection = () => {
       <div className={styles.heroContent}>
         <div className={styles.heartIcon} style={{ backgroundImage: `url(${heartIcon})` }} />
         <h1 className={styles.heroTitle}>
-          Lend the helping hand get involved
-        </h1>
-        <p className={styles.heroSubtitle}>Help the Poor in Need!</p>
+        We rise by lifting others.</h1>
+        <p className={styles.heroSubtitle}>Join our cause, ignite hope.</p>
         <button className={styles.heroBtn}>
           Discover More
         </button>
       </div>
       <img 
-        src={rightSideImage} 
+        src="heroSec2.png"
         alt="Decorative" 
         className={styles.rightSideImage} 
       />

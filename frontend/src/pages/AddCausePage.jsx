@@ -23,7 +23,7 @@ const AddCausePage = () => {
         image: null 
     }
 
-    const categories = ['Education', 'Health', 'Social welfare', 'Disaster Relief', 'Community Development', 'Other']; // Available categories
+    const categories = ['Education', 'Health Care', 'Basic Needs Support', 'Support for Earning','Disaster Relief', 'Community Development', 'Other']; // Available categories
 
     const validationSchema = Yup.object({
         title: Yup.string().required('Title is required'),

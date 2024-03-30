@@ -14,7 +14,6 @@ import HeroSection from './components/HeroSection'
 import PeopleDonated from './pages/AdminPanel/PeopleDonated'
 import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonation'
 import SignIn from './components/forms/signInForm'
-import Header from './components/Header'
 
 
 
@@ -23,7 +22,7 @@ function App() {
   return (
     <>
     <NavbarM/>
-    
+
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path='/signin' element={<SignIn />} />

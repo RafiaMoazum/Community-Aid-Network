@@ -64,8 +64,8 @@
   }
   
   .rightSideImage {
-    width: 35vw; /* Use viewport width to control size */
-    height: auto;
+    width: 550px; 
+    height: 450px;
     position: absolute;
     right:0;
     top: 50%;

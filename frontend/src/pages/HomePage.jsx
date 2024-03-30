@@ -1,8 +1,10 @@
 import axios from "axios";
+import Container from 'react-bootstrap/Container';
 import { useEffect, useState } from "react";
 import "./styles/HomePage.css"
 import HeroSection from "../components/HeroSection";
 import { NavLink } from "react-router-dom";
+import CategoriesSection from "../components/CategoriesSection";
 
 
 const BackendUrl = 'http://localhost:3000';
@@ -28,7 +30,9 @@ const HomePage = () => {
     },[])
     return ( 
         <>
-        <HeroSection />
+        <HeroSection />        
+        <div style={{fontWeight:"bold", textAlign:"center", fontSize:"35px", fontFamily:"cursive"}}>Categories</div>
+         <CategoriesSection/>
         <div className="main">
             {causes.map((element) => (
                 <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>

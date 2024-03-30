@@ -3,22 +3,24 @@ import styles from './style.module.css';
 import backgroundImage from '../../assets/images/we-believe-map.png';
 import heartIcon from '../../assets/images/we-use-icon.png';
 import rightSideImage from '../../assets/images/blog-1-3.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+
+  const navigate = useNavigate();
   return (
     <section className={styles.heroSection} style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className={styles.heroContent}>
         <div className={styles.heartIcon} style={{ backgroundImage: `url(${heartIcon})` }} />
         <h1 className={styles.heroTitle}>
-          Lend the helping hand get involved
-        </h1>
-        <p className={styles.heroSubtitle}>Help the Poor in Need!</p>
-        <button className={styles.heroBtn}>
+        We rise by lifting others.</h1>
+        <p className={styles.heroSubtitle}>Join our cause, ignite hope.</p>
+        <button className={styles.heroBtn}  onClick={() => navigate("/AllCauses")}>
           Discover More
         </button>
       </div>
       <img 
-        src={rightSideImage} 
+        src="heroSec2.png"
         alt="Decorative" 
         className={styles.rightSideImage} 
       />

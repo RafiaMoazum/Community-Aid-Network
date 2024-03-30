@@ -29,15 +29,18 @@ const HomePage = () => {
     useEffect(() =>{
          fetchCauses();
     },[])
+
+    const lastFiveCauses = causes.slice(-5);
     return ( 
         <>
         <HeroSection />        
         <HomePageSlider/>
-        <div style={{fontWeight:"bold", textAlign:"center", fontSize:"35px", fontFamily:"cursive"}}>Categories</div>
 
+        <div style={{fontWeight:"bold", textAlign:"center", fontSize:"35px", fontFamily:"cursive"}}>Categories</div>
          <CategoriesSection/>
+         <div style={{fontWeight:"bold",fontSize:"35px", fontFamily:"cursive", margin:"10px"}}>Latest Cases</div>
         <div className="main">
-            {causes.map((element) => (
+            {lastFiveCauses.map((element) => (
                 <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>
                 <div key={element.id} className="card">
                 <img className="picture" src={`${BackendUrl}/${element.image}`} alt="image"/>

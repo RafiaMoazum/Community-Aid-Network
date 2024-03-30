@@ -83,8 +83,11 @@ getSpecificCauseDetails: async (req, res) => {
         console.log("Error in getting cause details:", error);
         res.status(500).json({ message: "Internal server error" });
     }
-}
+},
 
-}
+
+};
+
+
 
 export default CauseController;

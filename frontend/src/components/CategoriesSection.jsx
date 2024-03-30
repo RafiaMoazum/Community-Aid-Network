@@ -1,8 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CategoriesSection = () => {
+    const navigate=useNavigate();
+    const handleClick = (category) => {
+        navigate('/CategoryWiseCauses', { state: { category } });  };
     return (
         <>
             <Container fluid style={{margin:"30px 2px"}}>  
@@ -10,44 +15,48 @@ const CategoriesSection = () => {
                     <Col>
                         <div style={{ textAlign: "center"}}>
                             <img src="/education.jfif" alt="Category 1" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Education</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Education")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Education</div></b></div>
                         </div>
                     </Col>
                     <Col>
                         <div style={{textAlign: "center"}}>
                             <img src="/health care 5.jfif" alt="Category 2" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Health Care</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Health Care")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Health Care</div></b></div>
                         </div>
                     </Col>
                     <Col>
                         <div style={{textAlign: "center"}}>
                             <img src="/basic needs 4.jpg" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Basic Needs Support</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Basic Needs Support")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Basic Needs Support</div></b></div>
+                        </div>
+                    </Col>
+                   
+                    <Col>
+                        <div style={{ textAlign: "center"}}>
+                            <img src="/Community dev2.jpg" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Support for Earning")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Support for Earning</div></b></div>
                         </div>
                     </Col>
                     <Col>
                         <div style={{textAlign: "center"}}>
                             <img src="/earning2.jfif" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Support for Earning</div>
-                        </div>
-                    </Col>
-                    <Col>
-                        <div style={{ textAlign: "center"}}>
-                            <img src="/Community dev2.jpg" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Community Development</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Community Development")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Community Development</div></b></div>
+                    
+                            
                         </div>
                     </Col>
                     <Col>
                         <div style={{ textAlign: "center"}}>
                             <img src="/disaster relief3.jfif" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Disaster Relief</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Disaster Relief")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Disaster Relief</div></b></div>
+
                         </div>
                     </Col>
                     
                     <Col>
                         <div style={{ textAlign: "center"}}>
                             <img src="/other3.jfif" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div>Other</div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Others")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Others</div></b></div>
                         </div>
                     </Col>
                 </Row>         

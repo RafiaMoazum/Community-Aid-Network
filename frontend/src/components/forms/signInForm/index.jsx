@@ -5,9 +5,10 @@ import loginValidationSchema from "./validationSchema";
 import styles from './styles.module.css'
 import signInUser from "../../../api/signInApi";
 import { useUserAuthContext } from "../../../context/userAuthContext";
-
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+    const navigate = useNavigate()
     const initialValues = {
         email: "",
         password: ""
@@ -38,7 +39,7 @@ const SignIn = () => {
                 <p className={styles.title}>Sign In</p>
                 <FormField name="email" type="email" placeholder="Email"  />
                 <FormField name="password" type="password" placeholder="Password"  />
-                <button type="submit" className={styles.btn} id="btn">Sign In</button>
+                <button type="submit" className={styles.btn} id="btn" onClick={() => navigate("/")}>Sign In</button>
                 </div>
             </Form>
         </Formik>

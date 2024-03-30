@@ -16,6 +16,9 @@ import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonatio
 import SignIn from './components/forms/signInForm'
 import LogOut from './pages/Logout'
 import SigninProtectedRoute from './routing/protectedRoute'
+import CategoryWiseCauses from './pages/CategoryWiseCauses'
+import AllCauses from './pages/AllCauses'
+import Footer from './components/footer'
 
 
 
@@ -41,9 +44,12 @@ function App() {
       <Route path="/donationData" element={<DonationData/>} />
       <Route path="/peopleDonated" element={<PeopleDonated/>} />
       <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
+      <Route path="/categoryWiseCauses" element={<CategoryWiseCauses/>}/>  
+      <Route path="/allCauses" element={<AllCauses/>} />
 
     </Routes>
     
+    <Footer/>
     </>
   )
 }

@@ -8,6 +8,7 @@ import causeRouter from "./router/causeRoute.js";
 import registrationRouter from './router/registerationRoute.js'; 
 import pendingApprovalRouter from './router/pendingApprovalRoute.js';
 import signInRouter from './router/signinRoute.js';
+import userRouter from './router/userRouter.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = Express();
@@ -26,6 +27,7 @@ app.use(pendingApprovalRouter);
 app.use(causeRouter);
 app.use(registrationRouter); 
 app.use(signInRouter)
+app.use(userRouter)
 
 console.log('__dirname:', __dirname);
 console.log('Joined path:', path.join(__dirname, 'uploads'));

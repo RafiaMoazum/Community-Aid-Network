@@ -4,6 +4,7 @@ import FormField from "../common/FormField";
 import loginValidationSchema from "./validationSchema";
 import styles from './styles.module.css'
 import signInUser from "../../../api/signInApi";
+import { useUserAuthContext } from "../../../context/userAuthContext";
 
 
 const SignIn = () => {
@@ -11,11 +12,12 @@ const SignIn = () => {
         email: "",
         password: ""
     };
-
+    const { storeTokenInLS } = useUserAuthContext();
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-           const response = await signInUser(values); // Using await here requires the function to be async
-            console.log("You are Signed in", response);
+           const {token} = await signInUser(values); // Using await here requires the function to be async
+           storeTokenInLS(token) ;
+           console.log("You are Signed in", token);
             resetForm();
         } catch (error) {
             console.log(error.message); // Improved error logging
@@ -31,11 +33,13 @@ const SignIn = () => {
             onSubmit={handleSubmit}
             validationSchema={loginValidationSchema}
         >
-        <Form className={styles.formContainer}> 
-                <p className={styles.heading} id="heading">Sign In</p>
-                <FormField name="email" type="email" placeholder="Email" />
-                <FormField name="password" type="password" placeholder="Password" />
+            <Form className={styles.mainForm}>
+                <div className={styles.form}>
+                <p className={styles.title}>Sign In</p>
+                <FormField name="email" type="email" placeholder="Email"  />
+                <FormField name="password" type="password" placeholder="Password"  />
                 <button type="submit" className={styles.btn} id="btn">Sign In</button>
+                </div>
             </Form>
         </Formik>
     );

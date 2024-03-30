@@ -1,33 +1,37 @@
-import React,{ useEffect,useState} from 'react';
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Remove BrowserRouter as Router, not used here
+import { useUserAuthContext } from '../context/userAuthContext';
+import LogoutButton from './LogoutButton/LogoutButton';
+import styles from './NavBar.module.css' ;// Import the CSS module
 
-const NavbarM = () => {  
-  
+const NavbarM = () => {
+  const { isLoggedIn } = useUserAuthContext();
 
-return (
+  return (
     <div>
-      <Navbar collapseOnSelect expand="lg" style = {{backgroundColor: "white"}}>
+      <Navbar collapseOnSelect expand="lg" className={styles.navbar}>
         <Container fluid>
-          <img alt="" src="/logo2.png" width="100" height="110" className="d-inline-block align-top"/>
-          <Navbar.Brand href="#home"> <b>Community Aid Network</b></Navbar.Brand>
+          <img alt="" src="/logo2.png" className={`d-inline-block align-top ${styles.logo}`}/>
+          <Navbar.Brand href="#home" className={styles.navbarBrand}>Community Aid Network</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             </Nav>
             <Nav>
-             
-
-                <Link to="/" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Home </b></Link>
-                <Link to="/AddCausePage" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Add Cause </b></Link>
-                <Link to="/AdminPanel" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Admin </b></Link>
-                <Link to="/registration" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> Register </b></Link>
-                <Link to="/signin" style={{textDecoration:'none', color:'black', marginRight: '20px'}}><b> | Login</b></Link>
-               
-            
-              
+              <Link to="/" className={styles.navLink}><b>Home</b></Link>
+              <Link to="/AddCausePage" className={styles.navLink}><b>Add Cause</b></Link>
+              <Link to="/AdminPanel" className={styles.navLink}><b>Admin</b></Link>
+              {isLoggedIn ? (
+                <LogoutButton />
+              ) : (
+                <>
+                  <Link to="/registration" className={styles.navLink}><b>Register</b></Link>
+                  <Link to="/signin" className={styles.navLink}><b>| Login</b></Link>
+                </>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

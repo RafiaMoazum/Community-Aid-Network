@@ -5,6 +5,7 @@ import "./styles/HomePage.css"
 import HeroSection from "../components/HeroSection";
 import { NavLink } from "react-router-dom";
 import CategoriesSection from "../components/CategoriesSection";
+import HomePageSlider from "../components/HomePageSlider";
 
 
 const BackendUrl = 'http://localhost:3000';
@@ -31,7 +32,9 @@ const HomePage = () => {
     return ( 
         <>
         <HeroSection />        
+        <HomePageSlider/>
         <div style={{fontWeight:"bold", textAlign:"center", fontSize:"35px", fontFamily:"cursive"}}>Categories</div>
+
          <CategoriesSection/>
         <div className="main">
             {causes.map((element) => (

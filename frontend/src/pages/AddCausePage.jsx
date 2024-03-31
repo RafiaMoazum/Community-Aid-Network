@@ -3,9 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from "axios";
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router';
-import "./styles/AddCausePage.css"
+import styles from "./styles/addCause.module.css"
 
 const AddCausePage = () => {
+    const [selectedFileName, setSelectedFileName] = useState('');
+
     const navigate=useNavigate();
     const [causeData, setCauseData] = useState({
         title: '',
@@ -62,52 +64,59 @@ const AddCausePage = () => {
     }
 
     return (
-        <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-        >
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             {({ setFieldValue }) => (
-                <Form id="form">
-                    <p id="heading">Add Cause</p>
-                    <Field type="text" id="title" name="title" placeholder="Title" className="field" />
-                    <ErrorMessage name="title" />
-                    <br />
-                    <br />
-                    <Field type="text" id="details" name="details" placeholder="Details" className="field" />
-                    <ErrorMessage name="details" />
-                    <br />
-                    <br />
+                <Form className={styles.mainFormContainer}>
+                    <div className={styles.formContainer}>
+                    <h2 className={styles.formHeading}>Add Cause</h2>
+                    <Field type="text" name="title" placeholder="Title" className={styles.field} />
+                    <ErrorMessage name="title" component="div" className={styles.errorMessage} />
 
-                    <Field type="number" id="goal_amount" name="goal_amount" placeholder="Goal Amount" className="field" />
-                    <ErrorMessage name="goal_amount" />
-                    <br />
-                    <br />
+                    <Field type="text" name="details" placeholder="Details" className={styles.field} />
+                    <ErrorMessage name="details" component="div" className={styles.errorMessage} />
 
-                    <Field as="select" id="category" name="category" className="field">
+                    <Field type="number" name="goal_amount" placeholder="Goal Amount" className={styles.field} />
+                    <ErrorMessage name="goal_amount" component="div" className={styles.errorMessage} />
+
+                    <Field as="select" name="category" className={`${styles.field} ${styles.selectField}`}>
                         <option value="" disabled>Select category</option>
                         {categories.map((category, index) => (
                             <option key={index} value={category}>{category}</option>
                         ))}
                     </Field>
-                    <ErrorMessage name="category" />
-                    <br />
-                    <br />
+                    <ErrorMessage name="category" component="div" className={styles.errorMessage} />
 
-                    <input
-                        type="file"
-                        id="image"
-                        name="image"
-                        accept="image/*" 
-                        onChange={(event) => {
-                            setFieldValue("image", event.currentTarget.files[0]); 
-                        }}
-                    />
-                    <ErrorMessage name="image" />
-                    <br />
-                    <br />
+                    <div className={styles.actions}>
+    <label htmlFor="image" className={styles.uploadBtn}>Choose File</label>
+    <input 
+        type="file" 
+        id="image" 
+        name="image" 
+        accept="image/*" 
+        className={styles.fileInputHidden} 
+        onChange={(event) => {
+            setFieldValue("image", event.currentTarget.files[0]);
+            setSelectedFileName(event.currentTarget.files[0].name);
+        }} 
+    />
+    {selectedFileName && (
+        <div className={styles.result}>
+            <div className={styles.fileUploaded}>
+                <p>{selectedFileName}</p>
+                <div 
+                    className={styles.fileRemove} 
+                    onClick={() => {
+                        setFieldValue("image", null);
+                        setSelectedFileName('');
+                    }}
+                >X</div>
+            </div>
+        </div>
+    )}
+</div>
 
-                    <button type="submit" id="btn">Add Cause</button>
+                    <button type="submit" className={styles.submitButton}>Add Cause</button>
+                    </div>
                 </Form>
             )}
         </Formik>

@@ -8,7 +8,7 @@ import LogoutButton from './LogoutButton/LogoutButton';
 import styles from './NavBar.module.css' ;// Import the CSS module
 
 const NavbarM = () => {
-  const { isLoggedIn } = useUserAuthContext();
+  const { userDetails } = useUserAuthContext();
 
   return (
     <div>
@@ -24,12 +24,15 @@ const NavbarM = () => {
               <Link to="/" className={styles.navLink}><b>Home</b></Link>
               <Link to="/AddCausePage" className={styles.navLink}><b>Add Cause</b></Link>
               <Link to="/AdminPanel" className={styles.navLink}><b>Admin</b></Link>
-              {isLoggedIn ? (
-                <LogoutButton />
+              {userDetails && userDetails.isValid ? (
+                <>
+                  <div className={styles.userName}>{userDetails.name}</div>
+                  <LogoutButton />
+                </>
               ) : (
                 <>
-                  <Link to="/registration" className={styles.navLink}><b>Register</b></Link>
-                  <Link to="/signin" className={styles.navLink}><b>| Login</b></Link>
+                  <Link to="/registration" className={styles.navLink}>Register</Link>
+                  <Link to="/signin" className={styles.navLink}>| Login</Link>
                 </>
               )}
             </Nav>

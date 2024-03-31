@@ -1,20 +1,45 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import validateUser from "../api/fetchUserDataApi";
 
 const UserAuth = createContext();
 
-const UserAuthContextPovider = ({children}) => {
+const UserAuthContextProvider = ({ children }) => {
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [userDetails, setUserDetails] = useState(null);
+
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            if (token) {
+                try {
+                    const data = await validateUser(token);
+                    console.log("we have token", token)
+                    setUserDetails(data);
+                } catch (error) {
+                    console.error("Error validating user:", error);
+                }
+            }
+        };
+        fetchUserDetails();
+    }, [token]);
+
     const storeTokenInLS = (serverToken) => {
-        return localStorage.setItem("token", serverToken)
-    }
-    return(
-        <UserAuth.Provider value={{storeTokenInLS}}>
+        localStorage.setItem("token", serverToken);
+        setToken(serverToken); // This will trigger the useEffect to fetch user details
+    };
+
+    const logoutUser = () => {
+        localStorage.removeItem("token");
+        setToken(null);
+        setUserDetails(null); 
+    };
+
+    return (
+        <UserAuth.Provider value={{ userDetails, storeTokenInLS, logoutUser }}>
             {children}
         </UserAuth.Provider>
-    )
-}
+    );
+};
 
-export const useUserAuthContext = () => {
-    return useContext(UserAuth)
-}
+export const useUserAuthContext = () => useContext(UserAuth);
 
-export default UserAuthContextPovider;
+export default UserAuthContextProvider;

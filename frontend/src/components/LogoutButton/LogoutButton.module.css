@@ -1,0 +1,70 @@
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-right: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: 0.4s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #3498db, #e74c3c);
+  }
+  
+  .sign {
+    width: 100%;
+    transition-duration: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: #ecf0f1;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: 0.4s;
+  }
+  
+  .btn:hover {
+    width: 120px;
+    border-radius: 20px;
+    transition-duration: 0.4s;
+    background: linear-gradient(to right, #3498db, #e74c3c);
+  }
+  
+  .btn:hover .sign {
+    width: 30%;
+    transition-duration: 0.4s;
+    padding-left: 12px;
+  }
+  
+  .btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: 0.4s;
+    padding-right: 10px;
+  }
+  
+  .btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  

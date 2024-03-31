@@ -14,6 +14,11 @@ import HeroSection from './components/HeroSection'
 import PeopleDonated from './pages/AdminPanel/PeopleDonated'
 import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonation'
 import SignIn from './components/forms/signInForm'
+import LogOut from './pages/Logout'
+import SigninProtectedRoute from './routing/protectedRoute'
+import CategoryWiseCauses from './pages/CategoryWiseCauses'
+import AllCauses from './pages/AllCauses'
+import Footer from './components/footer'
 
 
 
@@ -26,8 +31,13 @@ function App() {
     <Routes>
       <Route path="/registration" element={<Signup />} />
       <Route path='/signin' element={<SignIn />} />
+      <Route path='/logout' element={<LogOut />} />
       <Route path="/" index element={<HomePage/>}/>
-      <Route path="/addCausePage" element={<AddCausePage/>} />
+      <Route path="/addCausePage" element={
+        <SigninProtectedRoute>
+            <AddCausePage />
+        </SigninProtectedRoute>
+    } />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
       <Route path="/adminPanel" element={<AdminPanel/>} />
       <Route path="/pendingApproval" element={<PendingApproval/>} />
@@ -35,9 +45,12 @@ function App() {
       <Route path="/donationData" element={<DonationData/>} />
       <Route path="/peopleDonated" element={<PeopleDonated/>} />
       <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
+      <Route path="/categoryWiseCauses" element={<CategoryWiseCauses/>}/>  
+      <Route path="/allCauses" element={<AllCauses/>} />
 
     </Routes>
     
+    <Footer/>
     </>
   )
 }

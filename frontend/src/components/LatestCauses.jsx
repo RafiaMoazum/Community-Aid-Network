@@ -1,50 +1,49 @@
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
 import axios from "axios";
-
-
+import styles from "./latestCause.module.css"; 
 
 const LatestCauses = () => {
-    const[causes, setCauses] = useState([]);
-
+    const [causes, setCauses] = useState([]);
     const BackendUrl = 'http://localhost:3000';
 
-    const fetchCauses = async () =>{
-      try {
-        
-       const response= await axios.get("http://localhost:3000/getAllCauses");
-       console.log("Response data:", response.data);
-       setCauses(response.data.data);
-       console.log("Causes after setting state:", causes); 
+    useEffect(() => {
+        const fetchCauses = async () => {
+            try {
+                const response = await axios.get(`${BackendUrl}/getAllCauses`);
+                setCauses(response.data.data);
+            } catch (error) {
+                console.error("Error in getting Causes Data", error);
+            }
+        };
+        fetchCauses();
+    }, []);
 
-      } catch (error) {
-        console.log("Error in getting Causes Data",error)
-      }
-    }
-
-    useEffect(() =>{
-         fetchCauses();
-    },[])
-
-    const latestCauses = causes.slice(-4);
-    return ( 
-        <>
-        
-        <div className="main">
-            {latestCauses.map((element) => (
-                <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}}>
-                <div key={element.id} className="card">
-                <img className="picture" src={`${BackendUrl}/${element.image}`} alt="image"/>
-                    <p>Title: {element.title || "N/A"}</p> 
-                    <p>Details: {element.details || "N/A"}</p> 
-                    <p>Category: {element.category || "N/A"}</p> 
-                    <p>Goal Amount: {element.goal_amount || "N/A"}</p> 
-                </div>
-                </NavLink>
-            ))}
+    return (
+        <div className={styles.cardContainer}>
+{causes.slice(-4).map((cause) => (
+  <NavLink key={cause.id} to={`/CauseDetailsPage/${cause.id}`} className={styles.cardNavLink}>
+    <div className={styles.card}>
+      <img src={`${BackendUrl}/${cause.image}`} alt={cause.title} className={styles.cardImage} />
+      <div className={styles.cardContent}>
+        <div>
+          <span className={styles.categoryBadge}>{cause.category}</span>
+          <h3 className={styles.title}>{cause.title}</h3>
+          <p className={styles.description}>{cause.details}</p>
         </div>
-        </>
-     );
-}
- 
+        <div>
+          <div className={styles.fundingInfo}>${cause.raised} Raised of ${cause.goal_amount} Goal</div>
+          <div className={styles.progress}>
+            <div className={styles.progressBar} style={{ width: `${(cause.raised / cause.goal_amount) * 100}%` }}></div>
+          </div>
+          <button className={styles.donateButton}>Donate Now</button>
+        </div>
+      </div>
+    </div>
+  </NavLink>
+))}
+        </div>
+    );
+};
+
 export default LatestCauses;

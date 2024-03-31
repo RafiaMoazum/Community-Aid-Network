@@ -33,10 +33,11 @@ function App() {
       <Route path='/signin' element={<SignIn />} />
       <Route path='/logout' element={<LogOut />} />
       <Route path="/" index element={<HomePage/>}/>
-      <Route 
-        path="/addCausePage" 
-        element={<SigninProtectedRoute element={<AddCausePage />} />} 
-      />
+      <Route path="/addCausePage" element={
+        <SigninProtectedRoute>
+            <AddCausePage />
+        </SigninProtectedRoute>
+    } />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
       <Route path="/adminPanel" element={<AdminPanel/>} />
       <Route path="/pendingApproval" element={<PendingApproval/>} />

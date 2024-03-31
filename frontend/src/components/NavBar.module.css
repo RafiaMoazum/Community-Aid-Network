@@ -1,31 +1,31 @@
 /* NavbarM.module.css */
 .navbar {
-    background-color: #fffcfc; /* A calming, trust-evoking teal */
+    background-color: #fffcfc; /* Light, neutral background */
     padding: 0.5rem 1rem;
     display: flex;
-    align-items: center; /* Ensure vertical alignment is centered */
+    align-items: center;
 }
 
 .navbarBrand {
     font-weight: 700;
     font-size: 1.4em;
-    color: #4a4949 !important;
-    margin-right: auto; /* Ensure brand is left-aligned and items are pushed to the right */
+    color: #4a4949;
+    margin-right: auto;
 }
 
 .navLink, .navLinkLogout {
-    color: #4a4949 !important;
+    color: #4a4949;
     margin-right: 20px;
     font-size: 1.1em;
-    text-decoration: none !important;
+    text-decoration: none;
     display: flex;
-    align-items: center; /* Center align the text/icons vertically */
-    height: 40px; /* Standardize height for alignment */
+    align-items: center;
+    height: 40px;
 }
 
 .navLink:hover, .navLink:focus, .navLinkLogout:hover, .navLinkLogout:focus {
-    color: #ffbf69 !important; /* Warm, inviting gold for hover and focus */
-    text-decoration: underline !important;
+    color: #ffbf69; /* Hover effect for links */
+    text-decoration: underline;
 }
 
 .logo {
@@ -34,23 +34,30 @@
 }
 
 .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Logo hover effect */
+}
+
+.userName {
+    font-size: 1em; /* Slightly smaller than nav links for subtlety */
+    font-weight: 600;
+    color: #383838; /* Blue that complements the color scheme */
+    padding: 10px 15px; /* Adequate padding for a pill-shaped appearance */
+    margin-right: 5px; /* Consistent spacing with other nav items */
+    transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
 }
 
 @media (max-width: 768px) {
     .navbar {
         padding: 0.25rem 0.5rem;
     }
-    .navbarBrand {
-        font-size: 1.2em;
-    }
-    .navLink, .navLinkLogout {
+    .navbarBrand, .navLink, .navLinkLogout {
         font-size: 1em;
-        margin-right: 10px;
     }
     .logo {
         height: 50px;
     }
+    .userName {
+        font-size: 0.85em; /* Adjust for smaller screens */
+        margin-right: 10px;
+    }
 }
-
-

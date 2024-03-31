@@ -1,16 +1,17 @@
 import React from "react";
 import { useUserAuthContext } from "../context/userAuthContext";
 import { Navigate } from "react-router-dom";
-// import validateUser from "../api/fetchUserDataApi";
 
+const SigninProtectedRoute = ({ children }) => {
+    const { userDetails } = useUserAuthContext();
+    
+    // Check if user details are available to determine if the user is authenticated
+    const isAuthenticated = userDetails && userDetails.isValid;
 
-const SigninProtectedRoute =  ({element}) => {
-    const { isLoggedIn} = useUserAuthContext();
+    console.log("Is User is Authenticated " , isAuthenticated)
 
-  /* const isUserValid =  await validateUser(token)
-   return isUserValid ? element : <Navigate to="/signin" replace />;
-  */ 
-    return isLoggedIn ? element : <Navigate to="/signin" replace />;
-  };
+    // Redirect to signin page if not authenticated
+    return isAuthenticated ? children : <Navigate to="/signin" replace />;
+};
 
 export default SigninProtectedRoute;

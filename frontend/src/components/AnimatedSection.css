@@ -1,0 +1,118 @@
+
+.container {
+    margin:0 0px 80px 0px;
+    display: flex; 
+    
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    background-color: rgb(177, 99, 5); 
+    height:325px;
+    width:50%;
+    position: relative;
+    animation-name: box1;
+    animation-duration: 6s;
+   padding: 50px 90px;
+   
+}
+.box1::before{
+    content: ""; 
+    background-image: url('/donation.jpeg');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+    opacity: 0.15;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    background-color: #05755b;
+    height:325px;
+    width:50%;
+    position: relative;
+    animation-name: box2;
+    animation-duration: 6s;
+    padding: 50px 70px;
+
+}
+
+.box2::before{
+    content: ""; 
+    background-image: url('/children.jfif');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+    opacity: 0.15;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+}
+
+@keyframes box1 {
+     0%   {left:-200px;}
+     25%  {left:15px;}
+  
+  }
+
+   @keyframes box2 {
+      0%   {right:-200px; }
+      25%  {right:15px; }
+  } 
+
+  .text{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 23px;
+    color: white;
+    
+  }
+
+  .heading{
+    font-size: 40px;
+    font-family:var(--pifoxen-font-two, "Fredoka One", cursive);
+    font-weight: bold;
+    color: white;
+  }
+
+  .button{
+    display: inline-block;
+    width:150px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #4CAF50;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin-top: 15px;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+  }
+  
+  .button:focus {
+    outline: none;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+  }

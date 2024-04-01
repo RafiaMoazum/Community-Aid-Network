@@ -9,6 +9,7 @@ const pendingApprovalRouter=Router();
 
 pendingApprovalRouter.post("/addCause", upload.single('image'),UserIdentification, PendingApprovalController.addCause);
 pendingApprovalRouter.get("/getAllPendingCauses", PendingApprovalController.getAllPendingCauses)
+pendingApprovalRouter.post("/rejectCause/:id", PendingApprovalController.rejectCause)
 
 
 export default pendingApprovalRouter;

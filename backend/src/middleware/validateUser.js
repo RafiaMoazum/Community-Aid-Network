@@ -11,6 +11,7 @@ const verifyToken = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, "Community-Aid_Network345678909876543");
         req.user = decoded;
+        console.log("req.user========",req.user)
         next();
     } catch (err) {
         return res.status(401).json({ message: "Invalid Token" });

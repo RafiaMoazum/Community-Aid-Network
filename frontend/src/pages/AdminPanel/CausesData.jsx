@@ -29,7 +29,7 @@ import { useEffect, useState } from "react";
   },[])
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{minHeight:"700px"}}>
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar
@@ -65,8 +65,8 @@ import { useEffect, useState } from "react";
                       <td>{element.category}</td>
                       <td>{element.goal_amount}</td>
                       <td>{element.raised_amount}</td>
-                      <td>Ali</td>
-                      <td>03240410037</td>
+                      <td>{element.User ? element.User.Name : ''}</td>
+                      <td>{element.User ? element.User.contactNo : ''}</td>
                     
                     </tr>
                     ))}

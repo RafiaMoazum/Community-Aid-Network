@@ -8,25 +8,28 @@ import { useUserAuthContext } from "../../../context/userAuthContext";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { storeTokenInLS } = useUserAuthContext();
+
     const initialValues = {
         email: "",
         password: ""
     };
-    const { storeTokenInLS } = useUserAuthContext();
+
     const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-           const {token} = await signInUser(values); // Using await here requires the function to be async
-           storeTokenInLS(token) ;
-           console.log("You are Signed in", token);
+            console.log("Login Form Submit is running");
+            const { token } = await signInUser(values); // Using await here requires the function to be async
+            storeTokenInLS(token);
+            console.log("You are Signed in", token);
             resetForm();
+            navigate("/"); // Navigate after successful login
         } catch (error) {
             console.log(error.message); // Improved error logging
         } finally {
             setSubmitting(false);
         }
     };
-    
 
     return (
         <Formik
@@ -36,10 +39,10 @@ const SignIn = () => {
         >
             <Form className={styles.mainForm}>
                 <div className={styles.form}>
-                <p className={styles.title}>Sign In</p>
-                <FormField name="email" type="email" placeholder="Email"  />
-                <FormField name="password" type="password" placeholder="Password"  />
-                <button type="submit" className={styles.btn} id="btn" onClick={() => navigate("/")}>Sign In</button>
+                    <p className={styles.title}>Sign In</p>
+                    <FormField name="email" type="email" placeholder="Email" />
+                    <FormField name="password" type="password" placeholder="Password" />
+                    <button type="submit" className={styles.btn} id="btn">Sign In</button>
                 </div>
             </Form>
         </Formik>

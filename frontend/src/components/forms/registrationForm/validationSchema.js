@@ -8,7 +8,7 @@ const validationSchema = Yup.object({
       /^(?:\d{5}-\d{7}-\d{1}|\d{13})$/, 
       'CNIC is invalid (should be 13 digits or formatted as XXXXX-XXXXXXX-X)'
     ).required('CNIC is required'),
-    contactNumber: Yup.string()
+    contactNo: Yup.string()
       .matches(/^[0-9+]*$/, 'Invalid contact number')
       .min(10, 'Contact number must be at least 10 characters')
       .max(15, 'Contact number must be at most 15 characters'),

@@ -62,7 +62,7 @@ const AddCausePage = () => {
         console.log("values", values);
 
         setSubmitting(false);
-        alert("Submitted");
+        alert("Form is submitted! You will receive a confirmation call soon");
        navigate("/");
     }
 

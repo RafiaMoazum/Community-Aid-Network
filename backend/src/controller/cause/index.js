@@ -2,6 +2,7 @@ import CauseModel from "../../model/cause/index.js";
 import PendingApprovalModel from "../../model/cause/pendingApprovalModel.js";
 import nodemailer from "nodemailer"
 import {google} from "googleapis"
+import UserModel from "../../model/user/index.js";
 
 // OAuth 2.0 credentials
 const clientId = '583073772726-s9s8p8fr3h0kgd2fn6eoeq9n9rnfmfjl.apps.googleusercontent.com';
@@ -29,12 +30,17 @@ const CauseController ={
                 details: pendingCause.details,
                 goal_amount: pendingCause.goal_amount,
                 image: pendingCause.image,
+                UserId:pendingCause.UserId
             });
 
             await pendingCause.destroy();
 
-            // Sending email
-            //const { to, sender } = req.body; 
+            const user = await UserModel.findByPk(pendingCause.UserId);
+            if (!user) {
+                return res.status(404).json({ error: "User not found" });
+            }
+            
+
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -49,9 +55,20 @@ const CauseController ={
 
             const mailOptions = {
                 from: '"Community Aid Network" <rafiamoazum@gmail.com>', 
-                to:"rafiamoazum01@gmail.com",
-                subject: 'About Cause Application on Community Aid Network Platform',
-                text: `Your Cause is Approved! Now it will be displayed on our site for people to see and support🤞`,
+                to:user.email,
+                subject: 'Your Donation Request Approved - Your Cause Will be Featured on Our Website',
+                text: `Dear ${user.Name},
+                We hope this email finds you well. We are pleased to inform you that your donation request 
+                has been approved by our team after careful verification and consideration. 
+                Your cause has been deemed eligible for featuring on our website, where individuals can view
+                and contribute towards fulfilling your needs or those of someone you care about.
+                Once again, congratulations on having your cause approved, and thank you for allowing us to be a part of your journey towards positive change.
+                If you have any questions or need further assistance, please do not hesitate to reach out to us.
+
+                Warm regards,
+                Community Aid Network
+                Email:communityAidNetwork@gmail.com
+                Contact No. 032089090`,
             };
 
             const result = await transporter.sendMail(mailOptions);
@@ -65,7 +82,9 @@ const CauseController ={
     },
 
 getAllCauses: async (req,res) =>{
-    const data= await CauseModel.findAll();
+    const data= await CauseModel.findAll({
+        include:[UserModel]
+    });
     res.json({
         data,
       });

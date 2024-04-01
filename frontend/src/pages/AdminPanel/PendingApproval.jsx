@@ -25,7 +25,7 @@ const PendingApproval = () => {
 
   useEffect(() => {
     fetchPendingCauses();
-  }, []);
+  }, [pendingCauses]);
 
   const handleAcceptCause = async (id) => {
     try {
@@ -37,9 +37,19 @@ const PendingApproval = () => {
     }
   };
 
+  const handleRejectCause = async (id) => {
+    try {
+      const response = await axios.post(`http://localhost:3000/rejectCause/${id}`);
+      console.log(response.data.message);
+      alert("Cause Rejected");
+    } catch (error) {
+      console.error('Error accepting cause:', error);
+    }
+  };
+
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{minHeight:"700px"}}>
         <Row>
           <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar
@@ -60,7 +70,7 @@ const PendingApproval = () => {
                       <th>Name</th>
                       <th>Phone</th>
                       <th>CNIC</th>
-                      <th>Address</th>
+                      <th>Email</th>
                       <th>Cause</th>
                       <th>Cause Category</th>
                       <th>Goal Amount</th>
@@ -70,16 +80,16 @@ const PendingApproval = () => {
                   <tbody>
                     {pendingCauses.map((element) => (
                       <tr key={element.id}>
-                        <td>Ali</td>
-                        <td>03240410037</td>
-                        <td>35202-1498464-8</td>
-                        <td>955 C Canal view Lahore</td>
+                        <td>{element.User.Name}</td>
+                        <td>{element.User.contactNo}</td>
+                        <td>{element.User.cnic}</td>
+                        <td>{element.User.email}</td>
                         <td>{element.title}</td>
                         <td>{element.category}</td>
                         <td>{element.goal_amount}</td>
                         <td style={{ display: "flex", gap: "5px" }}>
                           <Button  variant="success" style={{ marginTop: "10px" }} onClick={() => handleAcceptCause(element.id)}>Accept </Button>
-                          <Button  variant="danger" style={{ marginTop: "10px" }}> Reject </Button>
+                          <Button  variant="danger" style={{ marginTop: "10px" }} onClick={() => handleRejectCause(element.id)}> Reject </Button>
                         </td>
                       </tr>
                     ))}

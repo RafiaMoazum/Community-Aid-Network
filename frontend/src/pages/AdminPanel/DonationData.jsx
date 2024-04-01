@@ -9,7 +9,7 @@ import './AdminPanel.css';
  const DonationData = () => {
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{minHeight:"700px"}}>
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar

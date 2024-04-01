@@ -5,11 +5,31 @@ import Row from 'react-bootstrap/esm/Row';
 import { Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import './AdminPanel.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
 
  const PeopleAppliedForDonation = () => {
+
+  const[causes, setCauses] = useState([]);
+  const fetchCauses = async () =>{
+    try {
+      
+     const response= await axios.get("http://localhost:3000/getAllCauses");
+     console.log("Response data:", response.data);
+     setCauses(response.data.data);
+     console.log("Causes after setting state:", causes); 
+
+    } catch (error) {
+      console.log("Error in getting Causes Data",error)
+    }
+  }
+
+  useEffect(() =>{
+       fetchCauses();
+  },[])
   return (
     <>
-      <Container fluid>
+      <Container fluid style={{minHeight:"700px"}}>
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar
@@ -37,14 +57,17 @@ import './AdminPanel.css';
                     </tr>
                   </thead>
                   <tbody>
+                  {causes.map((element) => (
                     <tr>
-                    <td>Ali</td>
-                      <td>03240410037</td>
-                      <td>955 C Canal view Lahore</td>
-                      <td>35202-1498464-8</td>
-                      <td>abc@gmail.com</td>
-                      <td>Funds for Education</td>
+                      <td>{element.User ? element.User.Name : ''}</td>
+                      <td>{element.User? element.User.contactNo : ''}</td>
+                      <td>Address</td>
+                      <td>{element.User? element.User.cnic: ''}</td>
+                      <td>{element.User? element.User.email: ''}</td>
+                      <td>{element.title}</td>
+                    
                     </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

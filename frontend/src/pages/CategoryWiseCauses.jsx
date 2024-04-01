@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink, useLocation } from 'react-router-dom'; 
+import styles from "../components/latestCause.module.css"; 
 
-const BackendUrl = 'http://localhost:3000';
 
 const CategoryWiseCauses = () => {
+    const BackendUrl = 'http://localhost:3000';
     const [causes, setCauses] = useState([]);
     const location = useLocation();
     const { category } = location.state || {};
@@ -25,18 +26,28 @@ const CategoryWiseCauses = () => {
     }, [category]); 
 
     return ( 
-        <div className="main">
-            {causes.map((element) => (
-                <NavLink to={`/CauseDetailsPage/${element.id}`} style={{ textDecoration: 'none' , color:"black"}} key={element.id}>
-                    <div className="card">
-                        <img className="picture" src={`${BackendUrl}/${element.image}`} alt="image"/>
-                        <p>Title: {element.title || "N/A"}</p> 
-                        <p>Details: {element.details || "N/A"}</p> 
-                        <p>Category: {element.category || "N/A"}</p> 
-                        <p>Goal Amount: {element.goal_amount || "N/A"}</p> 
-                    </div>
-                </NavLink>
-            ))}
+        <div className={styles.cardContainer}>
+{causes.map((cause) => (
+  <NavLink key={cause.id} to={`/CauseDetailsPage/${cause.id}`} className={styles.cardNavLink}>
+    <div className={styles.card}>
+      <img src={`${BackendUrl}/${cause.image}`} alt={cause.title} className={styles.cardImage} />
+      <div className={styles.cardContent}>
+        <div>
+          <span className={styles.categoryBadge}>{cause.category}</span>
+          <h3 className={styles.title}>{cause.title}</h3>
+          <p className={styles.description}>{cause.details}</p>
+        </div>
+        <div>
+          <div className={styles.fundingInfo}>${cause.raised} Raised of ${cause.goal_amount} Goal</div>
+          <div className={styles.progress}>
+            <div className={styles.progressBar} style={{ width: `${(cause.raised / cause.goal_amount) * 100}%` }}></div>
+          </div>
+          {/* <button className={styles.donateButton}>Donate Now</button> */}
+        </div>
+      </div>
+    </div>
+  </NavLink>
+))}
         </div>
     );
 };

@@ -46,9 +46,12 @@ const AddCausePage = () => {
             formData.append('category', values.category);
             formData.append('image', values.image); 
 
+            const token = localStorage.getItem('token');
+
             const res = await axios.post("http://localhost:3000/addCause", formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data' 
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${token}` 
                 }
             });
             setCauseData(res);

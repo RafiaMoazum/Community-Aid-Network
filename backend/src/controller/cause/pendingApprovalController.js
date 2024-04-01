@@ -6,6 +6,7 @@ const PendingApprovalController ={
     
     addCause: async (req,res) => {
 
+        console.log("We are inside AddCause Contoller and here is the user's Data: ", req.user)
         try {
             const data = await PendingApprovalModel.create({
                 title:req.body.title,

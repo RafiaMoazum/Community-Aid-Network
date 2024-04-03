@@ -56,7 +56,9 @@ import { useEffect, useState } from "react";
                       <th>CNIC</th>
                       <th>Email</th>
                       <th>Cause</th>
-    
+                      <th>Goal</th>
+                      <th>Raised</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -69,6 +71,10 @@ import { useEffect, useState } from "react";
                       <td>{element.User? element.User.cnic: ''}</td>
                       <td>{element.User? element.User.email: ''}</td>
                       <td>{element.title}</td>
+                      <td>{element.goal_amount}</td>
+                      <td>{element.raised_amount}</td>
+
+
                     
                     </tr>
                     ))}

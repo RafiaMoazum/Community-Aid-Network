@@ -23,7 +23,11 @@ const NavbarM = () => {
             <Nav>
               <Link to="/" className={styles.navLink}><b>Home</b></Link>
               <Link to="/AddCausePage" className={styles.navLink}><b>Add Cause</b></Link>
-              <Link to="/AdminPanel" className={styles.navLink}><b>Admin</b></Link>
+              {userDetails && userDetails.role == 'admin'? (<Link to="/AdminPanel" className={styles.navLink}><b>Admin</b></Link>) :
+              (
+                <></>
+              )}
+              
               {userDetails && userDetails.isValid ? (
                 <>
                   <div className={styles.userName}>{userDetails.name}</div>

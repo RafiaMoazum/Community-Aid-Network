@@ -12,7 +12,7 @@ console.log(user)
             return res.status(404).json({ message: "User not found" });
         }
 
-        return res.json({ name: user.Name, email: user.email, isValid: true });
+        return res.json({ name: user.Name, email: user.email, isValid: true , role: user.role });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Internal Server Error" });

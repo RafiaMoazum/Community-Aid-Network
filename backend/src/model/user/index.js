@@ -22,7 +22,11 @@ const UserModel = sequelize.define('User', {
     },
     password:{
         type:DataTypes.STRING
-    }
+    }, role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'user'
+    },
   }, {
     paranoid:true
   });

@@ -15,6 +15,7 @@
     width:50%;
     position: relative;
     animation-name: box1;
+    /* animation-delay: 1s; */
     animation-duration: 6s;
    padding: 50px 90px;
    
@@ -44,6 +45,7 @@
     position: relative;
     animation-name: box2;
     animation-duration: 6s;
+    /* animation-delay: 1s; */
     padding: 50px 70px;
 
 }

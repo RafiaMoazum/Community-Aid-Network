@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import { Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import './AdminPanel.css';
+import axios from 'axios';
+
+
 
  const DonationData = () => {
+
+  const[donation,setDonation] =useState([]);
+
+  const fetchDonations = async() =>{
+    try {
+      const res = await axios.get("http://localhost:3000/getDonationsData");
+      setDonation(res.data.data);
+      console.log("Donation data=====", donation)
+    } catch (error) {
+      console.log("Error in getting Causes Data",error)
+
+    }
+  }
+
+  useEffect(() =>{
+   fetchDonations();
+  },[])
   return (
     <>
       <Container fluid style={{minHeight:"700px"}}>
@@ -22,31 +42,35 @@ import './AdminPanel.css';
             />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+            <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Donation Data</p>
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
                   <thead>
                     <tr>
+                      <th>Donour Id</th>
                       <th>Donour Name</th>
+                      <th>Phone</th>
                       <th>Donation Amount</th>
                       <th>Cause</th>
                       <th>Cause Category</th>
-                      <th>Name</th>
-                      <th>Phone</th>
-                    
-    
+                      <th>Cause Id</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Ali</td>
-                      <td>Rs.90000</td>
-                      <td>Fund for Education</td>
-                      <td>Education</td>
-                      <td>Ali</td>
-                      <td>03240410037</td>
-                      
+                    {donation.map((element) =>(
+                      <tr key={element.id}>
+                      <td>{element.User.id}</td>
+                      <td>{element.User.Name}</td>
+                      <td>{element.User.contactNo}</td>
+                      <td>{element.donation_amount}</td>
+                      <td>{element.Cause? element.Cause.title : ''}</td>
+                      <td>{element.Cause? element.Cause.category: ''}</td>
+                      <td>{element.Cause? element.Cause.id: ''}</td>
+
                     </tr>
+                    ))}
+                    
                   </tbody>
                 </table>
               </div>

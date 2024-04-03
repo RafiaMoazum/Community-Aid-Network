@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./styles/CauseDetails.css";
 
@@ -8,6 +9,11 @@ const BackendUrl = "http://localhost:3000";
 const CauseDetailsPage = () => {
   const [causeDetails, setCauseDetails] = useState();
   const params = useParams();
+  
+  const navigate = useNavigate();
+  const handleClick = (causeId) => {
+    navigate('/donationForm', { state: { causeId } }); 
+   };
 
   const fetchCauseDetails = async () => {
     try {
@@ -47,7 +53,7 @@ const CauseDetailsPage = () => {
               </div>
             </div>
             <div>
-            <button style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
+            <button onClick={() => handleClick(causeDetails.id)} style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
               Donate Now
             </button>
             </div>
@@ -55,8 +61,7 @@ const CauseDetailsPage = () => {
         </>
       ) : (
         <>
-          <h1>Cause Details</h1>
-          <p>No Details Found</p>
+          
         </>
       )}
     </>

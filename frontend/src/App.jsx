@@ -20,6 +20,7 @@ import AdminProtectedRoute from './routing/adminProtectedRoute'
 import CategoryWiseCauses from './pages/CategoryWiseCauses'
 import AllCauses from './pages/AllCauses'
 import Footer from './components/footer'
+import DonationForm from './pages/DonationForm'
 
 
 
@@ -52,6 +53,12 @@ function App() {
       <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
       <Route path="/categoryWiseCauses" element={<CategoryWiseCauses/>}/>  
       <Route path="/allCauses" element={<AllCauses/>} />
+      <Route path="/donationForm" element={<DonationForm/>} />
+      <Route path="/donationForm" element={
+        <SigninProtectedRoute>
+           {<DonationForm/>}
+        </SigninProtectedRoute>
+    } />
 
     </Routes>
     

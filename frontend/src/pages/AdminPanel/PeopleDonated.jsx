@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Col from 'react-bootstrap/esm/Col';
 import Row from 'react-bootstrap/esm/Row';
 import { Container } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import './AdminPanel.css';
+import axios from 'axios';
 
  const PeopleDonated = () => {
+
+  const[donation,setDonation] =useState([]);
+
+  const fetchDonations = async() =>{
+    try {
+      const res = await axios.get("http://localhost:3000/getDonationsData");
+      setDonation(res.data.data);
+      console.log("Donation data=====", donation)
+    } catch (error) {
+      console.log("Error in getting Causes Data",error)
+
+    }
+  }
+
+  useEffect(() =>{
+   fetchDonations();
+  },[])
   return (
     <>
       <Container fluid style={{minHeight:"700px"}}>
@@ -22,11 +40,13 @@ import './AdminPanel.css';
             />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+          <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>People Donated</p>
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
                   <thead>
                     <tr>
+                      <th>Id</th>
                       <th>Donour Name</th>
                       <th>Phone</th>
                       <th>Address</th>
@@ -36,14 +56,17 @@ import './AdminPanel.css';
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Ali</td>
-                      <td>03240410037</td>
-                      <td>955 C Canal view Lahore</td>
-                      <td>35202-1498464-8</td>
-                      <td>abc@gmail.com</td>
+                  {donation.map((element) =>(
+                      <tr key={element.id}>
+                      <td>{element.User.id}</td>
+                      <td>{element.User.Name}</td>
+                      <td>{element.User.contactNo}</td>
+                      <td> </td>
+                      <td>{element.User.cnic}</td>
+                      <td>{element.User.email}</td>
                       
                     </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

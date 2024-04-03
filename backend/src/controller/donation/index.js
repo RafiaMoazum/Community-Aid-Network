@@ -19,6 +19,11 @@ const DonationController = {
                 CauseId:causeId
             })
             console.log("Donation created successfully:", data);
+
+            const cause = await CauseModel.findByPk(causeId);
+            const updatedRaisedAmount = cause.raised_amount + req.body.donation_amount;
+            await CauseModel.update({ raised_amount: updatedRaisedAmount }, { where: { id: causeId } });
+            
             res.json(data);
         } catch (error) {
             console.log("Error in adding cause", error)

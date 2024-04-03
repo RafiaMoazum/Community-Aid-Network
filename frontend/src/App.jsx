@@ -16,6 +16,7 @@ import PeopleAppliedForDonation from './pages/AdminPanel/PeopleAppliedForDonatio
 import SignIn from './components/forms/signInForm'
 import LogOut from './pages/Logout'
 import SigninProtectedRoute from './routing/protectedRoute'
+import AdminProtectedRoute from './routing/adminProtectedRoute'
 import CategoryWiseCauses from './pages/CategoryWiseCauses'
 import AllCauses from './pages/AllCauses'
 import Footer from './components/footer'
@@ -39,7 +40,11 @@ function App() {
         </SigninProtectedRoute>
     } />
       <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
-      <Route path="/adminPanel" element={<AdminPanel/>} />
+      <Route path="/adminPanel" element={
+        <AdminProtectedRoute>
+            <AdminPanel/>
+        </AdminProtectedRoute>
+    } />
       <Route path="/pendingApproval" element={<PendingApproval/>} />
       <Route path="/causesData" element={<CausesData/>} />
       <Route path="/donationData" element={<DonationData/>} />

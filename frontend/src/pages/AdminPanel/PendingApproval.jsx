@@ -62,6 +62,8 @@ const PendingApproval = () => {
             />
           </Col>
           <Col xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+          <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Pending Approvals</p>
+
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className="table">

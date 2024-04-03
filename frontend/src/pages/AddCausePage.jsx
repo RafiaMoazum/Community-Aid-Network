@@ -34,7 +34,7 @@ const AddCausePage = () => {
             .positive('Goal Amount must be a positive number')
             .integer('Goal Amount must be an integer'),
         category: Yup.string().required('Category is required'),
-        image: Yup.mixed().required('Image is required') // Validate image field
+        image: Yup.mixed().required('Image is required') 
     });
 
     const handleSubmit = async (values, { setSubmitting }) => {

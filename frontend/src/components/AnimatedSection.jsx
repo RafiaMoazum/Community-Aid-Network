@@ -7,6 +7,7 @@ const AnimatedSection = () => {
 
     const navigate=useNavigate();
     return (
+        <Container fluid>
         <div className='container' style={{width:"100%"}}>
             <div className="box box1">
                 <p className='heading' >Donate Now</p>
@@ -18,9 +19,10 @@ const AnimatedSection = () => {
                 <p className='heading'  >Apply for donation</p>
                 <div className='text'> Don't face it alone.</div>
                 <div className='text'>Apply for assistance and let us stand by your side.</div>
-                <button className='button' onClick={() => navigate("/AddCausePage")}>Apply Now</button>
+                <button className='button' onClick={() => navigate("/addCausePage")}>Apply Now</button>
             </div>
         </div>
+        </Container>
     );
 }
 

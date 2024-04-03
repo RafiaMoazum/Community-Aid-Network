@@ -42,11 +42,14 @@ import { useEffect, useState } from "react";
             />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+          <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>People Applied for Donations</p>
+
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
                   <thead>
                     <tr>
+                      <th>Id</th>
                     <th>Name</th>
                       <th>Phone</th>
                       <th>Address</th>
@@ -58,10 +61,11 @@ import { useEffect, useState } from "react";
                   </thead>
                   <tbody>
                   {causes.map((element) => (
-                    <tr>
+                    <tr key={element.id}>
+                      <td>{element.User ? element.User.id : ''}</td>
                       <td>{element.User ? element.User.Name : ''}</td>
                       <td>{element.User? element.User.contactNo : ''}</td>
-                      <td>Address</td>
+                      <td> </td>
                       <td>{element.User? element.User.cnic: ''}</td>
                       <td>{element.User? element.User.email: ''}</td>
                       <td>{element.title}</td>

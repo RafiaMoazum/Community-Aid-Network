@@ -8,7 +8,6 @@ const PAYPAL_API_BASE = 'https://api-m.sandbox.paypal.com';
 
 const captureOrder = async (req, res) => {
     const { orderID } = req.params; // Extracting orderID from the request parameters
-    console.log(orderID);
     const accessToken = await generateAccessToken(); // Authenticating with PayPal
 
     try {
@@ -29,6 +28,7 @@ const captureOrder = async (req, res) => {
                 // Extracting amount and other necessary data from response
                 const amount = response.data.purchase_units[0].payments.captures[0].amount.value;
                 const causeId = response.data.purchase_units[0].reference_id; // Assuming causeId is stored in reference_id
+                const userId = req.user.userId;
 
                 console.log("amount " + amount)
                 console.log("causeId " + causeId)
@@ -37,6 +37,7 @@ const captureOrder = async (req, res) => {
                 const donation = await DonationModel.create({
                     donation_amount: amount, 
                     CauseId: causeId, 
+                    UserId: userId
                 }, { transaction });
 
                 const cause = await CauseModel.findOne({ where: { id: causeId } });

@@ -1,4 +1,4 @@
-import { Routes,Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/HomePage'
 import AddCausePage from './pages/AddCausePage'
@@ -21,48 +21,47 @@ import CategoryWiseCauses from './pages/CategoryWiseCauses'
 import AllCauses from './pages/AllCauses'
 import Footer from './components/footer'
 import DonationForm from './pages/DonationForm'
-
-
+import PayPalButton from './components/paypal/PayPalButton';
+import CheckoutForm from './pages/checkout'
+import DonationProofForm from './components/forms/transactionProof'
 
 function App() {
-
   return (
     <>
-    <NavbarM/>
-
-    <Routes>
-      <Route path="/registration" element={<Signup />} />
-      <Route path='/signin' element={<SignIn />} />
-      <Route path='/logout' element={<LogOut />} />
-      <Route path="/" index element={<HomePage/>}/>
-      <Route path="/addCausePage" element={
-        <SigninProtectedRoute>
+      <NavbarM />
+      <Routes>
+        <Route path='/proofForm' element={<DonationProofForm />} />
+        <Route path='/checkout' element={<CheckoutForm /> } />;
+        <Route path="/registration" element={<Signup />} />
+        <Route path='/signin' element={<SignIn />} />
+        <Route path='/logout' element={<LogOut />} />
+        <Route path="/" index element={<HomePage />} />
+        <Route path="/addCausePage" element={
+          <SigninProtectedRoute>
             <AddCausePage />
-        </SigninProtectedRoute>
-    } />
-      <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage/>} />
-      <Route path="/adminPanel" element={
-        <AdminProtectedRoute>
-            <AdminPanel/>
-        </AdminProtectedRoute>
-    } />
-      <Route path="/pendingApproval" element={<PendingApproval/>} />
-      <Route path="/causesData" element={<CausesData/>} />
-      <Route path="/donationData" element={<DonationData/>} />
-      <Route path="/peopleDonated" element={<PeopleDonated/>} />
-      <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation/>} />
-      <Route path="/categoryWiseCauses" element={<CategoryWiseCauses/>}/>  
-      <Route path="/allCauses" element={<AllCauses/>} />
-      <Route path="/donationForm" element={<DonationForm/>} />
-      <Route path="/donationForm" element={
-        <SigninProtectedRoute>
-           {<DonationForm/>}
-        </SigninProtectedRoute>
-    } />
-
-    </Routes>
-    
-    <Footer/>
+          </SigninProtectedRoute>
+        } />
+        <Route path="/causeDetailsPage/:id" element={<CauseDetailsPage />} />
+        <Route path="/adminPanel" element={
+          <AdminProtectedRoute>
+            <AdminPanel />
+          </AdminProtectedRoute>
+        } />
+        <Route path="/pendingApproval" element={<PendingApproval />} />
+        <Route path="/causesData" element={<CausesData />} />
+        <Route path="/donationData" element={<DonationData />} />
+        <Route path="/peopleDonated" element={<PeopleDonated />} />
+        <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation />} />
+        <Route path="/categoryWiseCauses" element={<CategoryWiseCauses />} />
+        <Route path="/allCauses" element={<AllCauses />} />
+        <Route path="/donationForm" element={<DonationForm />} />
+        <Route path="/donationForm" element={
+          <SigninProtectedRoute>
+            {<DonationForm />}
+          </SigninProtectedRoute>
+        } />
+      </Routes>
+      <Footer />
     </>
   )
 }

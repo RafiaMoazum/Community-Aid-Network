@@ -24,6 +24,7 @@ import DonationForm from './pages/DonationForm'
 import PayPalButton from './components/paypal/PayPalButton';
 import CheckoutForm from './pages/checkout'
 import DonationProofForm from './components/forms/transactionProof'
+import CausesCompleted from './pages/AdminPanel/CausesCompleted'
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path="/donationData" element={<DonationData />} />
         <Route path="/peopleDonated" element={<PeopleDonated />} />
         <Route path="/peopleAppliedForDonation" element={<PeopleAppliedForDonation />} />
+        <Route path="/causesCompleted" element={<CausesCompleted />} />
         <Route path="/categoryWiseCauses" element={<CategoryWiseCauses />} />
         <Route path="/allCauses" element={<AllCauses />} />
         <Route path="/donationForm" element={<DonationForm />} />

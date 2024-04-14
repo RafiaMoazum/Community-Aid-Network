@@ -8,7 +8,7 @@ import UserModel from "../../model/user/index.js";
 const clientId = '583073772726-s9s8p8fr3h0kgd2fn6eoeq9n9rnfmfjl.apps.googleusercontent.com';
 const clientSecret = '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';
 const redirectUri = 'https://developers.google.com/oauthplayground';
-const refresh_token = '1//04ZllecR0S7h4CgYIARAAGAQSNwF-L9Ir83owdTX7rlaNT87Khtg4KsBW33kL1ItrobFTJrHmbmXK4Tjvi_y1KqilpD7IPpw8cD0';
+const refresh_token = '1//04oXBrH7WMeHtCgYIARAAGAQSNwF-L9IrRt7nTncy1PScsoxp2ue2w87OouDDaY2cKuy4C_XhYl_8Et9GaIK1TqIiSHRs_O-LST8';
 
 // Gmail API scopes
 const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];

@@ -3,6 +3,7 @@ import sequelize from '../../db/config.js';
 import CauseModel from '../cause/index.js';
 import DonationModel from '../donation/index.js';
 import PendingApprovalModel from '../cause/pendingApprovalModel.js';
+import CompletedCausesModel from '../cause/completedCauses.js';
 
 const UserModel = sequelize.define('User', {
     
@@ -43,5 +44,7 @@ const UserModel = sequelize.define('User', {
   UserModel.hasMany(DonationModel);  //Donation Table will have UserId as a fk.
   DonationModel.belongsTo(UserModel);
 
+  UserModel.hasMany(CompletedCausesModel);  //CompletedCauseModel will have UserId as a fk
+  CompletedCausesModel.belongsTo(UserModel)
 
   export default UserModel;

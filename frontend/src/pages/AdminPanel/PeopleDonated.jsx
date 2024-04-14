@@ -56,7 +56,7 @@ import axios from 'axios';
                     </tr>
                   </thead>
                   <tbody>
-                  {donation.map((element) =>(
+                  {/* {donation.map((element) =>(
                       <tr key={element.id}>
                       <td>{element.User.id}</td>
                       <td>{element.User.Name}</td>
@@ -66,7 +66,7 @@ import axios from 'axios';
                       <td>{element.User.email}</td>
                       
                     </tr>
-                    ))}
+                    ))} */}
                   </tbody>
                 </table>
               </div>

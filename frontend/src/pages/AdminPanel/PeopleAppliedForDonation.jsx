@@ -38,8 +38,8 @@ import { useEffect, useState } from "react";
            opt3="Donation Data"
            opt4="People Donated"
            opt5="People Applied"
-           opt6="Logout"
-            />
+           opt6="Causes Completed"
+           />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>People Applied for Donations</p>

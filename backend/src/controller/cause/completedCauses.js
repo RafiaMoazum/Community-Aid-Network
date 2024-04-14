@@ -41,7 +41,6 @@ const CompletedCauseController = {
                 return res.status(404).json({ error: "User not found" });
             }
             
-            console.log("User Found😀😀😀", user.id);
 
             const transporter = nodemailer.createTransport({
                 service: 'gmail',

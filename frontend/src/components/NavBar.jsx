@@ -30,7 +30,9 @@ const NavbarM = () => {
               
               {userDetails && userDetails.isValid ? (
                 <>
+                <Link to="/userProfile" style={{textDecoration:"none"}}>
                   <div className={styles.userName}>{userDetails.name}</div>
+                </Link>
                   <LogoutButton />
                 </>
               ) : (

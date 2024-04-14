@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./styles/CauseDetails.css";
+import PayPalButton from "../components/paypal/PayPalButton";
 
 const BackendUrl = "http://localhost:3000";
 
@@ -11,9 +12,13 @@ const CauseDetailsPage = () => {
   const params = useParams();
   
   const navigate = useNavigate();
-  const handleClick = (causeId) => {
-    navigate('/donationForm', { state: { causeId } }); 
-   };
+  const handleClick = (causeId, goalAmount, currentAmount, causeTitle) => {
+    if (causeDetails) {
+      navigate('/checkout', { state: { causeId, goalAmount, currentAmount, causeTitle } });
+    } else {
+      console.error("Cause details are not available.");
+    }
+  };
 
   const fetchCauseDetails = async () => {
     try {
@@ -21,6 +26,7 @@ const CauseDetailsPage = () => {
         `http://localhost:3000/getSpecificCauseDetails/${params.id}`
       );
       setCauseDetails(res.data);
+      console.log(causeDetails)
     } catch (error) {
       console.log("Error getting Cause Details", error);
     }
@@ -53,7 +59,7 @@ const CauseDetailsPage = () => {
               </div>
             </div>
             <div>
-            <button onClick={() => handleClick(causeDetails.id)} style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
+            <button onClick={() => handleClick(causeDetails.id, causeDetails.goal_amount, causeDetails.raised_amount, causeDetails.title )} style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
               Donate Now
             </button>
             </div>

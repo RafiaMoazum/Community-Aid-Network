@@ -21,7 +21,7 @@ const CategoriesSection = () => {
                     <Col>
                         <div style={{textAlign: "center"}}>
                             <img src="/health care 5.jfif" alt="Category 2" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Health Care")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Health Care</div></b></div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Health")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Health Care</div></b></div>
                         </div>
                     </Col>
                     <Col>
@@ -56,7 +56,7 @@ const CategoriesSection = () => {
                     <Col>
                         <div style={{ textAlign: "center"}}>
                             <img src="/other3.jfif" alt="Category 3" style={{width: "150px", height: "150px", borderRadius: "50%"}} />
-                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Others")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Other</div></b></div>
+                            <div style = {{paddingTop: "20px"}}><b><div onClick={() => handleClick("Other")} style={{ textDecoration:'none', color:'black', cursor: 'pointer' }}>Other</div></b></div>
                         </div>
                     </Col>
                 </Row>         

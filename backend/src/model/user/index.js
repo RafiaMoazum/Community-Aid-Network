@@ -14,6 +14,9 @@ const UserModel = sequelize.define('User', {
     contactNo:{
         type: DataTypes.STRING,
     },
+    address:{
+      type: DataTypes.STRING,
+    },
     cnic:{
         type: DataTypes.STRING,
     },

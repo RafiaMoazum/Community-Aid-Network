@@ -7,7 +7,11 @@ import UserController from "../controller/user/userProfile.js";
 const userRouter = Router()
 
 userRouter.post("/user", verifyToken, userData)
-userRouter.get("/viewAllDonations", UserIdentification,UserController.viewAllDonation)
-userRouter.get("/viewAllCauses", UserIdentification,UserController.viewAllCauses)
+userRouter.get("/userProfile", UserIdentification,UserController.userProfile)
+userRouter.put("/updateUser", UserIdentification,UserController.updateUser)
+userRouter.get("/viewMyDonations", UserIdentification,UserController.viewMyDonation)
+userRouter.get("/viewMyDonations", UserIdentification,UserController.viewMyDonation)
+userRouter.get("/viewCurrentCauses", UserIdentification,UserController.viewCurrentCauses)
+userRouter.get("/viewCompletedCauses", UserIdentification,UserController.viewCompletedCauses)
 
 export default userRouter;

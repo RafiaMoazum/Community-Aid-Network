@@ -25,6 +25,10 @@ import PayPalButton from './components/paypal/PayPalButton';
 import CheckoutForm from './pages/checkout'
 import DonationProofForm from './components/forms/transactionProof'
 import CausesCompleted from './pages/AdminPanel/CausesCompleted'
+import UserProfile from './pages/UserProfile/UserProfile'
+import MyCauses from './pages/UserProfile/MyCauses'
+import MyCompletedCauses from './pages/UserProfile/MyCompletedCauses'
+import MyDonations from './pages/UserProfile/MyDonations'
 
 function App() {
   return (
@@ -56,12 +60,16 @@ function App() {
         <Route path="/causesCompleted" element={<CausesCompleted />} />
         <Route path="/categoryWiseCauses" element={<CategoryWiseCauses />} />
         <Route path="/allCauses" element={<AllCauses />} />
-        <Route path="/donationForm" element={<DonationForm />} />
-        <Route path="/donationForm" element={
+        <Route path="/userProfile" element={
           <SigninProtectedRoute>
-            {<DonationForm />}
+            {<UserProfile/>}
           </SigninProtectedRoute>
         } />
+          
+       <Route path="/myCauses" element={<MyCauses/>} />
+       <Route path="/myCompletedCauses" element={<MyCompletedCauses/>} />
+       <Route path="/myDonations" element={<MyDonations/>} />
+
       </Routes>
       <Footer />
     </>

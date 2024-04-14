@@ -15,9 +15,8 @@ const PendingApproval = () => {
       const response = await axios.get(
         "http://localhost:3000/getAllPendingCauses"
       );
-      console.log("Response data:", response.data);
       setPendingCauses(response.data.data);
-      console.log("Causes after setting state:", causes);
+      
     } catch (error) {
       console.log("Error in getting Causes Data", error);
     }
@@ -25,7 +24,7 @@ const PendingApproval = () => {
 
   useEffect(() => {
     fetchPendingCauses();
-  }, [pendingCauses]);
+  }, []);
 
   const handleAcceptCause = async (id) => {
     try {
@@ -58,7 +57,7 @@ const PendingApproval = () => {
               opt3="Donation Data"
               opt4="People Donated"
               opt5="People Applied"
-              opt6="Logout"
+              opt6="Causes Completed"
             />
           </Col>
           <Col xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">

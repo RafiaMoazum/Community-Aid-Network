@@ -59,9 +59,14 @@ const CauseDetailsPage = () => {
               </div>
             </div>
             <div>
-            <button onClick={() => handleClick(causeDetails.id, causeDetails.goal_amount, causeDetails.raised_amount, causeDetails.title )} style={{ backgroundColor: "green", color: "white" , width:"200px" }}>
-              Donate Now
+            <button
+                onClick={() => handleClick(causeDetails.id, causeDetails.goal_amount, causeDetails.raised_amount, causeDetails.title)}
+                style={{ backgroundColor: "green", color: "white", width: "200px" }}
+                disabled={causeDetails.raised_amount >= causeDetails.goal_amount}
+             >
+              {causeDetails.raised_amount >= causeDetails.goal_amount ? "Goal Reached" : "Donate Now"}
             </button>
+
             </div>
           </div>
         </>

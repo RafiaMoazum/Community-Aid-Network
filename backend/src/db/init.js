@@ -1,3 +1,4 @@
+import CompletedCausesModel from "../model/cause/completedCauses.js";
 import CauseModel from "../model/cause/index.js";
 import PendingApprovalModel from "../model/cause/pendingApprovalModel.js";
 import DonationModel from "../model/donation/index.js";
@@ -17,6 +18,10 @@ const dbInit = async () =>{
         force:false
     }),
     await PendingApprovalModel.sync({
+        alter:true,
+        force:false
+    }),
+    await CompletedCausesModel.sync({
         alter:true,
         force:false
     })

@@ -8,13 +8,13 @@ import './AdminPanel.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
- const CausesData = () => {
+ const CausesCompleted = () => {
 
   const[causes, setCauses] = useState([]);
   const fetchCauses = async () =>{
     try {
       
-     const response= await axios.get("http://localhost:3000/getAllCauses");
+     const response= await axios.get("http://localhost:3000/getAllCompletedCauses");
      console.log("Response data:", response.data);
      setCauses(response.data.data);
      console.log("Causes after setting state:", causes); 
@@ -24,15 +24,6 @@ import { useEffect, useState } from "react";
     }
   }
 
-  const handleCauseClosed = async (id) => {
-    try {
-      const response = await axios.post(`http://localhost:3000/completedCause/${id}`);
-      console.log(response.message);
-      alert("Cause Deleted from the screen and Added to Completed Causes Record");
-    } catch (error) {
-      console.error('Error recording completed cause:', error);
-    }
-  };
   useEffect(() =>{
        fetchCauses();
   },[])
@@ -51,7 +42,7 @@ import { useEffect, useState } from "react";
              />
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
-          <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Causes Data</p>
+          <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Causes Completed</p>
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
@@ -65,7 +56,6 @@ import { useEffect, useState } from "react";
                       <th>Raised Amount</th>
                       <th>Name</th>
                       <th>Phone</th>
-                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -79,10 +69,7 @@ import { useEffect, useState } from "react";
                       <td>{element.raised_amount}</td>
                       <td>{element.User ? element.User.Name : ''}</td>
                       <td>{element.User ? element.User.contactNo : ''}</td>
-                      <td style={{ display: "flex" }}>
-                          <Button  variant="success" style={{ marginTop: "10px" }} onClick={() => handleCauseClosed(element.id)}>Close</Button>
-                        </td>
-                    
+                     
                     </tr>
                     ))}
 
@@ -97,4 +84,4 @@ import { useEffect, useState } from "react";
   );
 }
 
-export default CausesData
+export default CausesCompleted;

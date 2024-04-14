@@ -5,6 +5,8 @@ import loadPaypalScript from './ScriptLoader';
 const PayPalButton = ({ caseId , donationAmount = 100 }) => {
   console.log("donation Amount" + donationAmount)
   const [message, setMessage] = useState('');
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  console.log(token)
 
   useEffect(() => {
     const clientId = 'AcpNnAGuhcvNMtYCpkrOoPWho5aSYlvpTY-gzM-PmMrDqzuFhQ-uK5rx5V5RQM0ObruAZCRQkCFdXiNl'; // Load from .env in a real scenario
@@ -21,9 +23,15 @@ const PayPalButton = ({ caseId , donationAmount = 100 }) => {
               return actions.reject(); // Properly handle rejection in PayPal's flow
             }
           },
+
           onApprove: async (data, actions) => {
             try {
-              const response = await axios.post(`http://localhost:3000/api/orders/${data.orderID}/capture`);
+              const response = axios.post(`http://localhost:3000/api/orders/${data.orderID}/capture`, {}, {
+                headers: {
+                  authentication: `Bearer ${token}` // Include the token in the Authorization header
+                }
+              });
+            
               setMessage(`Transaction successful: ${data.orderID}`);
               console.log("Capture result:", response.data);
             } catch (error) {

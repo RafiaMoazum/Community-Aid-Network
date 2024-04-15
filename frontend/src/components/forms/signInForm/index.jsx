@@ -21,13 +21,14 @@ const SignIn = () => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     try {
       console.log("Login Form Submit is running");
-      const { token } = await signInUser(values); // Using await here requires the function to be async
+      const { token } = await signInUser(values); 
       storeTokenInLS(token);
       console.log("You are Signed in", token);
       resetForm();
-      navigate("/"); // Navigate after successful login
+      navigate("/"); 
     } catch (error) {
-      console.log(error.message); // Improved error logging
+      console.log(error.message); 
+      alert(error.message)
     } finally {
       setSubmitting(false);
     }

@@ -4,12 +4,13 @@ import bcrypt from 'bcrypt';
 const registrationController = {
     addDetails: async (req, res) => {
         try {
-            const { name, contactNo, cnic, email, password } = req.body;
+            const { name, contactNo, address, cnic, email, password } = req.body;
             const hashedPassword = await bcrypt.hash(password, 12);
 
             const user = await UserModel.create({
                 Name: name,
                 contactNo,
+                address,
                 cnic,
                 email,
                 password: hashedPassword,
@@ -19,6 +20,7 @@ const registrationController = {
                 id: user.id, 
                 name: user.Name,
                 contactNo: user.contactNo,
+                address:user.address,
                 cnic: user.cnic,
                 email: user.email,
             };

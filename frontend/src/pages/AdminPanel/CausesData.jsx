@@ -80,7 +80,7 @@ import { useEffect, useState } from "react";
                       <td>{element.User ? element.User.Name : ''}</td>
                       <td>{element.User ? element.User.contactNo : ''}</td>
                       <td style={{ display: "flex" }}>
-                          <Button  variant="success" style={{ marginTop: "10px" }} onClick={() => handleCauseClosed(element.id)}>Close</Button>
+                          <Button  variant="success" style={{ marginTop: "10px" }} onClick={() => handleCauseClosed(element.id)}>Complete</Button>
                         </td>
                     
                     </tr>

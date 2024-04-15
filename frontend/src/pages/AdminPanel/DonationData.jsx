@@ -60,10 +60,10 @@ import axios from 'axios';
                   <tbody>
                     {donation.map((element) =>(
                       <tr key={element.id}>
-                      {/* <td>{element.Cause? element.User.id: ''}</td> */}
-                      {/* <td>{element.Cause? element.User.Name: ''}</td> */}
-                      {/* <td>{element.Cause? element.User.contactNo : ''}</td> */}
-                      <td>{element.Cause? element.donation_amount : ''}</td>
+                      <td>{element.User? element.User.id: ''}</td>
+                      <td>{element.User? element.User.Name: ''}</td>
+                      <td>{element.User? element.User.contactNo : ''}</td>
+                      <td>{element.donation_amount}</td>
                       <td>{element.Cause? element.Cause.title : ''}</td>
                       <td>{element.Cause? element.Cause.category: ''}</td>
                       <td>{element.Cause? element.Cause.id: ''}</td>

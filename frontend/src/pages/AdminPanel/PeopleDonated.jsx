@@ -9,13 +9,13 @@ import axios from 'axios';
 
  const PeopleDonated = () => {
 
-  const[donation,setDonation] =useState([]);
+  const[donor,setDonor] =useState([]);
 
   const fetchDonations = async() =>{
     try {
-      const res = await axios.get("http://localhost:3000/getDonationsData");
-      setDonation(res.data.data);
-      console.log("Donation data=====", donation)
+      const res = await axios.get("http://localhost:3000/getDonorData");
+      setDonor(res.data.data);
+      console.log("Donor data=====", donor)
     } catch (error) {
       console.log("Error in getting Causes Data",error)
 
@@ -56,17 +56,17 @@ import axios from 'axios';
                     </tr>
                   </thead>
                   <tbody>
-                  {/* {donation.map((element) =>(
+                  {donor.map((element) =>(
                       <tr key={element.id}>
-                      <td>{element.User.id}</td>
-                      <td>{element.User.Name}</td>
-                      <td>{element.User.contactNo}</td>
-                      <td> </td>
-                      <td>{element.User.cnic}</td>
-                      <td>{element.User.email}</td>
+                      <td>{element.id}</td>
+                      <td>{element.Name}</td>
+                      <td>{element.contactNo}</td>
+                      <td>{element.address} </td>
+                      <td>{element.cnic}</td>
+                      <td>{element.email}</td>
                       
                     </tr>
-                    ))} */}
+                    ))}
                   </tbody>
                 </table>
               </div>

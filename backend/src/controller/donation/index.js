@@ -44,6 +44,25 @@ const DonationController = {
           console.log("Error getting donations data:", error);
           res.status(500).json({ error: "Internal server error" });
         }
+      },
+      getDonorData: async (req, res) => {
+        try {
+          const donorIds = await DonationModel.findAll({
+            attributes: ['UserId'], 
+            distinct: true, 
+            raw: true 
+          });
+
+          const data = await UserModel.findAll({
+            where: { id: donorIds.map(d => d.UserId) } 
+          });
+          
+
+          res.json({ data });
+        } catch (error) {
+          console.log("Error getting donor data:", error);
+          res.status(500).json({ error: "Internal server error" });
+        }
       }
       
 }

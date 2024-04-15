@@ -10,6 +10,7 @@ const Signup = () => {
     const initialValues = {
         name: '',
         email: '',
+        address:'',
         cnic: '',
         contactNo: '',
         password: '',
@@ -45,6 +46,7 @@ const Signup = () => {
                     <p className={styles.heading}>Sign Up</p>
                     <FormField name="name" type="text" placeholder="Name" />
                     <FormField name="email" type="email" placeholder="Email" />
+                    <FormField name="address" type="address" placeholder="Address" />
                     <FormField name="cnic" type="text" placeholder="CNIC" />
                     <FormField name="contactNo" type="text" placeholder="Contact Number" />
                     <FormField name="password" type="password" placeholder="Password" />

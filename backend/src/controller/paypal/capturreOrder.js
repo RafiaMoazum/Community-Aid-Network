@@ -41,8 +41,12 @@ const captureOrder = async (req, res) => {
                 }, { transaction });
 
                 const cause = await CauseModel.findOne({ where: { id: causeId } });
+                console.log("this is Cause Object", cause)
+                console.log("this is raised-amount", cause.dataValues.raised_amount)
+                console.log("this is donation-amount", parseInt(amount))
+
                 await cause.update({
-                    raised_amount: sequelize.literal(`raised_amount + ${amount}`),
+                    raised_amount: cause.dataValues.raised_amount + parseInt(amount),
                 }, { transaction });
 
                 await transaction.commit();

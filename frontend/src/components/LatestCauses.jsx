@@ -11,6 +11,7 @@ const LatestCauses = () => {
         const fetchCauses = async () => {
             try {
                 const response = await axios.get(`${BackendUrl}/getAllCauses`);
+                console.log("this is allCause Response", response)
                 setCauses(response.data.data);
             } catch (error) {
                 console.error("Error in getting Causes Data", error);

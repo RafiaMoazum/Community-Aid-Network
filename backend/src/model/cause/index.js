@@ -20,7 +20,7 @@ const CauseModel = sequelize.define('Cause',{
         type: DataTypes.STRING, 
       },
     raised_amount:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     }
 })
 

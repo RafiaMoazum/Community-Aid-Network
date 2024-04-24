@@ -18,8 +18,9 @@ import { useEffect, useState } from "react";
      const response= await axios.get(`http://localhost:3000/viewCurrentCauses`,{
       headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` 
+          'Authorization': `Bearer ${token}`   
       }
+
     });
      console.log("Response data:", response.data);
      setCauses(response.data);

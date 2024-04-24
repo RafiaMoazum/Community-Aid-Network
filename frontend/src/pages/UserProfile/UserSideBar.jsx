@@ -25,7 +25,7 @@ const UserSideBar = () => {
                   <h2>User</h2>
                 </>
               )}
-        <li><Link to="/userProfile" style={{textDecoration: "none", color:"black"}} >Update profile</Link></li>
+        <li><Link to="/userProfile" style={{textDecoration: "none", color:"black"}} >Update Profile</Link></li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>
         <li><Link to="/myCauses" style={{textDecoration: "none", color: "black"}} >My Current Causes</Link> </li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>

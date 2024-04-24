@@ -3,19 +3,20 @@ import CompletedCausesModel from "../../model/cause/completedCauses.js";
 import UserModel from "../../model/user/index.js";
 import nodemailer from "nodemailer"
 import {google} from "googleapis"
-
+import 'dotenv/config'
 
 // OAuth 2.0 credentials
-const clientId = '583073772726-s9s8p8fr3h0kgd2fn6eoeq9n9rnfmfjl.apps.googleusercontent.com';
-const clientSecret = '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';
-const redirectUri = 'https://developers.google.com/oauthplayground';
-const refresh_token = '1//04oXBrH7WMeHtCgYIARAAGAQSNwF-L9IrRt7nTncy1PScsoxp2ue2w87OouDDaY2cKuy4C_XhYl_8Et9GaIK1TqIiSHRs_O-LST8';
+// const clientId = '583073772726-s9s8p8fr3h0kgd2fn6eoeq9n9rnfmfjl.apps.googleusercontent.com';
+// const clientSecret = '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';
+// const redirectUri = 'https://developers.google.com/oauthplayground';
+// const refresh_token = '1//04oXBrH7WMeHtCgYIARAAGAQSNwF-L9IrRt7nTncy1PScsoxp2ue2w87OouDDaY2cKuy4C_XhYl_8Et9GaIK1TqIiSHRs_O-LST8';
+
 
 // Gmail API scopes
 const SCOPES = ['https://www.googleapis.com/auth/gmail.send'];
 
 // Creating an OAuth2 client
-const oAuth2Client = new google.auth.OAuth2(clientId, clientSecret, redirectUri);
+const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET,process.env.REDIRECT_URI);
 
 const CompletedCauseController = {
     completedCause: async (req, res) => {
@@ -46,16 +47,16 @@ const CompletedCauseController = {
                 service: 'gmail',
                 auth: {
                     type: 'OAuth2',
-                    user: 'rafiamoazum@gmail.com',
-                    clientId: clientId,
-                    clientSecret: clientSecret,
-                    refreshToken: refresh_token,
+                    user: process.env.GMAIL_SENDER,
+                    clientId: process.env.CLIENT_ID,
+                    clientSecret: process.env.CLIENT_SECRET,
+                    refreshToken: process.env.REFRESH_TOKEN,
                     accessToken: oAuth2Client.credentials.access_token,
                 },
             });
 
             const mailOptions = {
-                from: '"Community Aid Network" <rafiamoazum@gmail.com>', 
+                from: `"Community Aid Network" <${process.env.GMAIL_SENDER}>`, 
                 to:user.email,
                 subject: ' Congratulations! Your Cause Has Reached Its Goal 🎉 ',
                 text: `Dear ${user.Name},

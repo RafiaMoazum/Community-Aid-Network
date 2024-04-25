@@ -7,16 +7,21 @@ import Sidebar from './Sidebar';
 import './AdminPanel.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from '../../components/Loader';
 
  const CausesData = () => {
 
   const[causes, setCauses] = useState([]);
+  const [loading,setLoading] =useState(true);
+
   const fetchCauses = async () =>{
     try {
       
      const response= await axios.get("http://localhost:3000/getAllCauses");
      console.log("Response data:", response.data);
      setCauses(response.data.data);
+     setLoading(false)
+
      console.log("Causes after setting state:", causes); 
 
     } catch (error) {
@@ -39,6 +44,7 @@ import { useEffect, useState } from "react";
   return (
     <>
       <Container fluid style={{minHeight:"700px"}}>
+       
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
             <Sidebar
@@ -52,6 +58,9 @@ import { useEffect, useState } from "react";
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Causes Data</p>
+          {loading? (
+          <Loader/>
+        ):(
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
@@ -90,6 +99,7 @@ import { useEffect, useState } from "react";
                 </table>
               </div>
             </section>
+          )}
           </Col>
         </Row>
       </Container>

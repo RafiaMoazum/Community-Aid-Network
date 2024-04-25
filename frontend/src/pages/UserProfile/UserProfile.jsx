@@ -30,6 +30,7 @@ const fetchUserProfile = async () => {
         });
         console.log("userProfile=========",response.data)
         setUserData(response.data);
+
     } catch (error) {
         console.error('Error fetching user profile:', error);
     }

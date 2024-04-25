@@ -7,10 +7,13 @@ import UserSideBar from './UserSideBar';
 import './userProfile.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from '../../components/Loader';
 
  const MyDonations= () => {
 
   const[donations, setdonations] = useState([]);
+  const [loading,setLoading] =useState(true);
+
   const fetchMydonations = async () =>{
     try {
     const token = localStorage.getItem('token');
@@ -22,6 +25,8 @@ import { useEffect, useState } from "react";
       });
      console.log("Response data:", response.data);
      setdonations(response.data);
+     setLoading(false)
+
      console.log("donations after setting state:", donations); 
 
     } catch (error) {
@@ -43,6 +48,9 @@ import { useEffect, useState } from "react";
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>My Donations</p>
+          {loading? (
+          <Loader/>
+        ):(
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
@@ -70,6 +78,7 @@ import { useEffect, useState } from "react";
                 </table>
               </div>
             </section>
+        )}
           </Col>
         </Row>
       </Container>

@@ -10,7 +10,6 @@ userRouter.post("/user", verifyToken, userData)
 userRouter.get("/userProfile", UserIdentification,UserController.userProfile)
 userRouter.put("/updateUser", UserIdentification,UserController.updateUser)
 userRouter.get("/viewMyDonations", UserIdentification,UserController.viewMyDonation)
-userRouter.get("/viewMyDonations", UserIdentification,UserController.viewMyDonation)
 userRouter.get("/viewCurrentCauses", UserIdentification,UserController.viewCurrentCauses)
 userRouter.get("/viewCompletedCauses", UserIdentification,UserController.viewCompletedCauses)
 

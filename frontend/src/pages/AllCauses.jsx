@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'; 
 import styles from "../components/latestCause.module.css"; 
+import { Container} from 'react-bootstrap';
+import Loader from '../components/Loader';
 
 
 
 const AllCauses = () => {
     const [causes, setCauses] = useState([]);
+    const [loading,setLoading] =useState(true);
+
     const BackendUrl = 'http://localhost:3000';
 
     useEffect(() => {
@@ -14,6 +18,8 @@ const AllCauses = () => {
             try {
                 const response = await axios.get(`${BackendUrl}/getAllCauses`);
                 setCauses(response.data.data);
+                setLoading(false)
+
             } catch (error) {
                 console.error("Error in getting Causes Data", error);
             }
@@ -22,6 +28,10 @@ const AllCauses = () => {
     }, []);
 
     return (
+      <Container fluid style={{minHeight:"500px"}}>
+ {loading? (
+  <Loader/>
+ ):(
         <div className={styles.cardContainer}>
 {causes.map((cause) => (
   <NavLink key={cause.id} to={`/CauseDetailsPage/${cause.id}`} className={styles.cardNavLink}>
@@ -45,6 +55,8 @@ const AllCauses = () => {
   </NavLink>
 ))}
         </div>
+        )}
+      </Container>
     );
 };
 

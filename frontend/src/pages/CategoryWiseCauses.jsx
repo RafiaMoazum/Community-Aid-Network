@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom'; 
 import styles from "../components/latestCause.module.css"; 
+import Loader from '../components/Loader';
+//import loaderStyle from "../components/loader.module.css"
 
 
 const CategoryWiseCauses = () => {
@@ -9,6 +12,7 @@ const CategoryWiseCauses = () => {
     const [causes, setCauses] = useState([]);
     const location = useLocation();
     const { category } = location.state || {};
+    const [loading,setLoading] =useState(true);
 
     const fetchCauses = async () =>{
         try {
@@ -16,6 +20,7 @@ const CategoryWiseCauses = () => {
             console.log("Response data:", response.data);
             const filteredCauses = response.data.data.filter(element => element.category === category);
             setCauses(filteredCauses);
+            setLoading(false)
         } catch (error) {
             console.log("Error in getting Causes Data", error);
         }
@@ -26,7 +31,12 @@ const CategoryWiseCauses = () => {
     }, [category]); 
 
     return ( 
-        <div className={styles.cardContainer}>
+      <Container fluid style={{minHeight:"400px"}}>
+
+      {loading ? (
+       <Loader/> 
+        ):(
+      <div className={styles.cardContainer}>
 {causes.map((cause) => (
   <NavLink key={cause.id} to={`/CauseDetailsPage/${cause.id}`} className={styles.cardNavLink}>
     <div className={styles.card}>
@@ -48,8 +58,14 @@ const CategoryWiseCauses = () => {
     </div>
   </NavLink>
 ))}
-        </div>
+ </div>
+
+
+      )}
+    </Container>
+
     );
+    
 };
 
 export default CategoryWiseCauses;

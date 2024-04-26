@@ -7,10 +7,13 @@ import UserSideBar from './UserSideBar';
 import './userProfile.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from '../../components/Loader';
 
  const MyCompletedCauses= () => {
 
   const[causes, setCauses] = useState([]);
+  const [loading,setLoading] =useState(true);
+
   const fetchMyCauses = async () =>{
     try {
       
@@ -24,6 +27,8 @@ import { useEffect, useState } from "react";
     });
      console.log("Response data:", response.data);
      setCauses(response.data);
+     setLoading(false)
+
      console.log("Causes after setting state:", causes); 
 
     } catch (error) {
@@ -40,16 +45,14 @@ import { useEffect, useState } from "react";
       <Container fluid style={{minHeight:"700px"}}>
         <Row>
         <Col xs={4} sm={4} md={2} lg={2} className="d-none d-lg-block">
-        <UserSideBar
-              opt1="My Profile"
-              opt2="My Current Causes"
-              opt3="My Completed Causes"
-              opt4="My Donations"
-            
-            />
+        <UserSideBar />
+
           </Col>
           <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>My Completed Causes</p>
+          {loading? (
+          <Loader/>
+        ):(
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className='table'>
@@ -73,7 +76,6 @@ import { useEffect, useState } from "react";
                       <td>{element.category}</td>
                       <td>{element.goal_amount}</td>
                       <td>{element.raised_amount}</td>
-                      
                     
                     </tr>
                     ))}
@@ -82,6 +84,7 @@ import { useEffect, useState } from "react";
                 </table>
               </div>
             </section>
+        )}
           </Col>
         </Row>
       </Container>

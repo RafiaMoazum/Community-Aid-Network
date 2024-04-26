@@ -20,7 +20,7 @@ const PendingApprovalModel = sequelize.define('PendingApproval',{
         type: DataTypes.STRING, 
       },
     raised_amount:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT
     }
 })
 

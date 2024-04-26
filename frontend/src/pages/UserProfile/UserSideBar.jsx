@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import { useUserAuthContext } from "../../context/userAuthContext"
 
 
-const UserSideBar = (props) => {
+const UserSideBar = () => {
     const { userDetails } = useUserAuthContext();
 
   return (
@@ -25,13 +25,13 @@ const UserSideBar = (props) => {
                   <h2>User</h2>
                 </>
               )}
-        <li><Link to="/userProfile" style={{textDecoration: "none", color:"black"}} >{props.opt1}</Link></li>
+        <li><Link to="/userProfile" style={{textDecoration: "none", color:"black"}} >Update Profile</Link></li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>
-        <li><Link to="/myCauses" style={{textDecoration: "none", color: "black"}} >{props.opt2}</Link> </li>
+        <li><Link to="/myCauses" style={{textDecoration: "none", color: "black"}} >My Current Causes</Link> </li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>
-        <li><Link to="/myCompletedCauses" style={{textDecoration: "none", color: "black"}} >{props.opt3}</Link> </li>
+        <li><Link to="/myCompletedCauses" style={{textDecoration: "none", color: "black"}} >My Completed Causes</Link> </li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>
-        <li><Link to="/myDonations" style={{textDecoration: "none", color: "black"}} >{props.opt4}</Link> </li>
+        <li><Link to="/myDonations" style={{textDecoration: "none", color: "black"}} >My Donations</Link> </li>
         <div style={{ border: "1px solid darkslategrey", margin: "10px 0" }}></div>
         
         

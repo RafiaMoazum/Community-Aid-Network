@@ -17,7 +17,7 @@ const CompletedCausesModel = sequelize.define('CompletedCause',{
         type:DataTypes.INTEGER,
     }, 
     raised_amount:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.FLOAT,
     }
 })
 

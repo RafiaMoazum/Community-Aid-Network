@@ -7,16 +7,20 @@ import Sidebar from "./Sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./AdminPanel.css";
+import Loader from "../../components/Loader";
 
 const PendingApproval = () => {
   const [pendingCauses, setPendingCauses] = useState([]);
+  const [loading,setLoading] =useState(true);
+
   const fetchPendingCauses = async () => {
     try {
       const response = await axios.get(
         "http://localhost:3000/getAllPendingCauses"
       );
       setPendingCauses(response.data.data);
-      
+      setLoading(false)
+
     } catch (error) {
       console.log("Error in getting Causes Data", error);
     }
@@ -62,7 +66,9 @@ const PendingApproval = () => {
           </Col>
           <Col xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>Pending Approvals</p>
-
+          {loading? (
+          <Loader/>
+        ):(
             <section className="form-container">
               <div className="form-cont table-responsive">
                 <table className="table">
@@ -98,6 +104,7 @@ const PendingApproval = () => {
                 </table>
               </div>
             </section>
+        )}
           </Col>
         </Row>
       </Container>

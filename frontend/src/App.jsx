@@ -52,9 +52,14 @@ function App() {
         <Route path="/adminPanel" element={
           <AdminProtectedRoute>
             <AdminPanel />
+            <PendingApproval/>
           </AdminProtectedRoute>
         } />
-        <Route path="/pendingApproval" element={<PendingApproval />} />
+         <Route path="/pendingApproval" element={
+          <AdminProtectedRoute>
+            <PendingApproval/>
+          </AdminProtectedRoute>
+        } />
         <Route path="/causesData" element={<CausesData />} />
         <Route path="/donationData" element={<DonationData />} />
         <Route path="/peopleDonated" element={<PeopleDonated />} />

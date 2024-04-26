@@ -1,7 +1,8 @@
+import 'dotenv/config'
 import { Sequelize } from "sequelize";
 
-const sequelize = new Sequelize('fundraisingnetwork', 'fundraisingadmin', 'Tv4j5BrATsQcAoPKVqTLgeprGzSEzC8M', {
-  host: 'dpg-co19otgl6cac73cqe1fg-a.oregon-postgres.render.com',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
   dialect: 'postgres',
   dialectOptions: {
       ssl: {

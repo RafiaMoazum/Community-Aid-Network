@@ -1,0 +1,64 @@
+/* Header.module.css */
+.mainHeader {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.mainMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logoContainer a img {
+    height: 60px; /* Adjust as necessary */
+}
+
+.navItemsContainer {
+    display: flex;
+    align-items: center;
+}
+
+.navItemsContainer a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.navItemsContainer a:hover,
+.navItemsContainer .active {
+    color: #007bff; /* Highlight color */
+}
+
+.loginLink {
+    margin-right: 20px;
+}
+
+.donateNowBtn {
+    background-color: #ff5e14; /* Brand color */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.donateNowBtn:hover {
+    background-color: darken(#ff5e14, 10%);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navItemsContainer {
+        display: none; /* Hide for mobile, show hamburger menu */
+    }
+    /* Add your mobile menu styles here */
+}
+
+/* Additional responsive and interactive styles as needed */

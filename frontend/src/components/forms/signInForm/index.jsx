@@ -47,12 +47,7 @@ const SignIn = () => {
           <p className={styles.title}>Sign In</p>
           <FormField name="email" type="email" placeholder="Email"/>
           <div className={styles.passwordField}>
-            <FormField
-              name="password"
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              style={{width:"100%"}}
-            />
+            <FormField name="password" type={showPassword ? "text" : "password"}  placeholder="Password" />
             <img
               src={showPassword ? "/eye-close.png" : "/eye-open.png"}
               alt="Toggle Password Visibility"

@@ -29,6 +29,7 @@ import UserProfile from './pages/UserProfile/UserProfile'
 import MyCauses from './pages/UserProfile/MyCauses'
 import MyCompletedCauses from './pages/UserProfile/MyCompletedCauses'
 import MyDonations from './pages/UserProfile/MyDonations'
+import ApplyAsVolunteer from './components/forms/volunteer'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/registration" element={<Signup />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/logout' element={<LogOut />} />
+        <Route path='/volunterApplication' element={<ApplyAsVolunteer />} />
         <Route path="/" index element={<HomePage />} />
         <Route path="/addCausePage" element={
           <SigninProtectedRoute>

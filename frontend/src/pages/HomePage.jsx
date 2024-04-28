@@ -15,10 +15,35 @@ const HomePage = () => {
         <>
         <HeroSection />        
         <AnimatedSection/>
-        <div style={{fontWeight:"bold", textAlign:"center", fontSize:"35px", fontFamily:"cursive"}}>Categories</div>
+        <div
+            style={{
+              fontSize: '2.6rem',
+              fontFamily: "'Arial', sans-serif",
+              fontWeight: 'bold',
+              color: 'Black',
+              marginBottom: '1rem',
+              marginTop: '3rem',
+              textAlign: 'center'
+          }}
+        >
+          Categories
+        </div>
          <CategoriesSection/>
          <HomePageSlider/>
-         <div style={{fontWeight:"bold",fontSize:"35px", fontFamily:"cursive", margin:"10px"}}>Latest Cases</div>
+         <div 
+            style={{
+            fontSize: '2.6rem',
+            fontFamily: "'Arial', sans-serif",
+            fontWeight: 'bold',
+            color: 'Black',
+            marginBottom: '1rem',
+            marginTop: '3rem',
+            textAlign: 'start',
+            marginLeft: '2rem'
+            }}
+         >
+            Latest Cases
+        </div>
         <LatestCauses/>
         </>
      );

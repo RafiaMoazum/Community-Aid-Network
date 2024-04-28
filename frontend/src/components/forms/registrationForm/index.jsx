@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import FormField from '../common/FormField';
 import validationSchema from './validationSchema';
@@ -7,6 +7,9 @@ import  registerUser  from '../../../api/registrationApi';
 import Background from '../../../assets/images/registeration-bg.png'
 
 const Signup = () => {
+
+    const [showPassword, setShowPassword] = useState(false)
+
     const initialValues = {
         name: '',
         email: '',
@@ -35,6 +38,11 @@ const Signup = () => {
 
     };
 
+    const togglePassword = () => {
+        setShowPassword(!showPassword)
+    }
+
+
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             <Form className={styles.mainForm} >
@@ -49,8 +57,11 @@ const Signup = () => {
                     <FormField name="address" type="address" placeholder="Address" />
                     <FormField name="cnic" type="text" placeholder="CNIC" />
                     <FormField name="contactNo" type="text" placeholder="Contact Number" />
-                    <FormField name="password" type="password" placeholder="Password" />
-                    <FormField name="confirmPassword" type="password" placeholder="Confirm Password" />
+                    <div className={styles.passwordField}>
+                    <FormField name="password" type= {showPassword? "text": "password"} placeholder="Password" />   
+                    <img src={showPassword ? "/eye-close.png" : "/eye-open.png"} alt="TogglePasswordVissibility" className={styles.togglePassword} onClick={togglePassword}/>
+                    </div>
+                    <FormField name="confirmPassword" type={showPassword? "text": "password"} placeholder="Confirm Password" />
                     <button type="submit" className={styles.btn}> Sign Up </button>
                     </div>
                 </div>

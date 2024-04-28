@@ -7,12 +7,13 @@
 
 .sideImage img {
     width: 100%;
-    max-height: 82vh; 
+    height: 90vh; 
     object-fit: cover;
 }
 
 .formContainer {
     display: flex;
+    height: 100vh; 
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
@@ -42,7 +43,7 @@
 
 .field {
     width: calc(100% - 20px);
-    padding: 10px 10px;
+    padding: 14px 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -72,3 +73,72 @@
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0,123,255,.25);
 }
+
+.passwordField {
+    position: relative;
+    width: 100%; 
+  }
+
+.togglePassword {
+    width:22px;
+    height:15px;
+    position: absolute;
+    top: 37%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    
+  }
+
+  @media (max-width: 1024px) {
+    .mainForm {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .sideImage {
+        display: none; /* Hide the image on smaller devices */
+    }
+
+    .formContainer {
+        height: auto; /* Adjust height for scrolling */
+        justify-content: flex-start; /* Align content to the top */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .form {
+        padding: 30px 20px; /* Reduce padding */
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Media query for mobile devices - max-width: 768px */
+@media (max-width: 768px) {
+    .formContainer {
+        padding: 15px; /* Further reduce padding for smaller screens */
+    }
+
+    .form {
+        padding: 20px 15px; /* Further reduce padding */
+    }
+
+    .field, .btn {
+        width: 100%; /* Full width inputs and buttons */
+    }
+
+    .togglePassword {
+        top: 50%; /* Adjust toggle password icon position */
+    }
+}
+
+/* Additional media query for very small mobile devices - max-width: 480px */
+@media (max-width: 480px) {
+    .heading {
+        font-size: 24px; /* Adjust heading size for very small screens */
+    }
+    
+    /* Adjust form field and button sizes if necessary */
+}
+
+
+  

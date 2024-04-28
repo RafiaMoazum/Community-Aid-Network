@@ -1,9 +1,12 @@
 /* AddCausePage.module.css */
 .mainFormContainer{
+    margin-top: 7rem;
    padding-top: 30px; 
+   
 }
 
 .formContainer {
+    
     display: flex;
     flex-direction: column;
     gap: 13px;

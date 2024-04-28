@@ -1,82 +1,180 @@
 .heroSection {
-    position: relative;
-    color: rgb(38, 37, 37);
-    background-size: cover;
-    background-position: center center;
-    height: 100vh; /* Use the full viewport height */
-    display: flex;
-    align-items: center; /* This will vertically center your content */
+  position: relative;
+  color: rgb(38, 37, 37);
+  background-size: cover;
+  background-position: right center; /* Keep the background aligned to the right */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Add this to manage spacing between text and image */
+  padding: 0 10%; /* Add padding to the left and right */
+}
+
+.heroContent {
+  max-width: 600px; /* Increase the max width for larger text */
+  z-index: 2; /* Keeps the text above the decorative image */
+}
+
+.heartIcon {
+  width: 60px; /* Slightly increase the icon size */
+  height: 60px;
+  background-size: contain;
+  margin-bottom: 2rem; /* Increase spacing below the icon */
+  background-repeat: no-repeat;
+}
+
+.heroTitle {
+  font-size: 60px; /* Increase the font size for desktop */
+  font-weight: bold;
+  margin-bottom: 1.5rem; /* Adjust spacing */
+  line-height: 1.1; /* Tighten the line height */
+}
+
+.heroSubtitle {
+  font-size: 24px; /* Increase the font size for desktop */
+  margin-bottom: 2rem; /* Increase spacing before the button */
+}
+
+.contactButton {
+  background: rgba(88, 101, 242, 1);
+  color: white;
+  font-family: inherit;
+  padding: 0.45em;
+  padding-left: 1.0em;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 3.5em;
+  padding-right: 4em;
+}
+
+.iconButton {
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 3em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.contactButton:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em #5566c2;
+}
+
+.contactButton:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em #5566c2;
+}
+
+.heroBtn {
+  padding: 15px 30px;
+  font-size: 20px; /* Slightly larger button text */
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Keep the shadow for depth */
+}
+
+.heroBtn:hover {
+  background-color: darkorange;
+}
+
+.rightSideImage {
+  width: 35%; /* Adjust the width to make the graphic larger */
+  height: auto; /* Keep the height proportional */
+  position: absolute;
+  right: 5%; /* Adjust the position to the right */
+  bottom: 25%; /* Adjust the position to the bottom */
+  transform: translateY(0); /* Align the image to the bottom */
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 0 4%; /* Less padding on tablets */
   }
-  
-  .heroContent {
-    position: relative;
-    max-width: 540px;
-    padding-left: 10%; /* Adjust based on your layout */
-    z-index: 2; /* Ensures content is above the decorative image */
-  }
-  
-  .heartIcon {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: inline-block; /* Or 'block' if preferred */
-    position: absolute;
-    top: 0;
-    left: 0; /* Adjust position as needed */
-  }
-  
+
   .heroTitle {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 4.5vw; /* Slightly larger font size for tablets */
   }
-  
+
   .heroSubtitle {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 2vw;
   }
-  
-  .heroBtn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: orange;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .heroBtn:hover {
-    background-color: darkorange;
-  }
-  
-  .decorativeImageRight {
-    background-image: url('/path/to/your/right-side-image.png'); /* Replace with the correct image path */
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 50%; /* Adjust width and height as necessary */
-    z-index: 1; /* Keeps the image under the text content */
-  }
-  
+
   .rightSideImage {
-    width: 550px; 
-    height: 450px;
-    position: absolute;
-    right:0;
-    top: 50%;
-    transform: translateY(-50%); /* Center it vertically */
-    z-index: 5; /* Below the content but above the background */
+    width: 25vw; /* Adjust the graphic size for tablets */
+    right: 2%; /* Position it closer to the edge */
+    bottom: 25%; /* Adjust bottom positioning */
   }
-  
-  /* Responsive styles and other customizations */
-  @media (max-width: 768px) {
-    .rightSideImage {
-      width: 80vw; /* Smaller viewports get a smaller image */
-    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .heroSection {
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align content to the top */
+    height: auto; /* Allow content to determine the height */
+    padding: 10% 6% 4%; /* Increase padding */
   }
-  
+
+  .heroContent {
+    max-width: 100%; /* Full width on mobile */
+    text-align: center; /* Center align the text */
+    margin-bottom: 3rem; /* Add space between text and image */
+  }
+
+  .heartIcon {
+    margin-left: auto; /* Center the heart icon */
+    margin-right: auto;
+    margin-bottom: 1rem; /* Less space below the icon */
+  }
+
+  .heroTitle {
+    font-size: 8vw; /* Larger font size for readability on mobile */
+  }
+
+  .heroSubtitle {
+    font-size: 4vw;
+  }
+
+  .heroBtn {
+    margin-bottom: 2rem; /* Add space after the button */
+  }
+
+  .rightSideImage {
+    width: 60vw; /* Larger graphic for visual impact on mobile */
+    position: static; /* Disable absolute positioning */
+    margin: 0 auto; /* Center the image horizontally */
+    transform: none; /* Remove transformations */
+  }
+}
+
+/* Very small mobile styles */
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 9vw; /* Even larger font size for very small screens */
+  }
+
+  .heroSubtitle {
+    font-size: 5vw;
+  }
+
+  .rightSideImage {
+    width: 70vw; /* Adjust graphic size for very small screens */
+  }
+}

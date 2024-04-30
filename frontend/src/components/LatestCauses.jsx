@@ -33,7 +33,7 @@ const LatestCauses = () => {
           <p className={styles.description}>{cause.details}</p>
         </div>
         <div>
-          <div className={styles.fundingInfo}>${cause.raised_amount} Raised of ${cause.goal_amount} Goal</div>
+          <div className={styles.fundingInfo}>${cause.raised_amount? cause.raised_amount: "0"} Raised of ${cause.goal_amount} Goal</div>
           <div className={styles.progress}>
             <div className={styles.progressBar} style={{ width: `${(cause.raised_amount / cause.goal_amount) * 100}%` }}></div>
           </div>

@@ -71,7 +71,7 @@ const handleChange = (e) => {
         <UserSideBar />
 
           </Col>
-          <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+          <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block" style={{marginTop:"100px"}}>
           <div>
             
             <form id="form">

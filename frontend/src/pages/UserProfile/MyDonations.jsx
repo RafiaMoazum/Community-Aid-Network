@@ -46,7 +46,7 @@ import Loader from '../../components/Loader';
         <UserSideBar />
 
           </Col>
-          <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block">
+          <Col  xs={8} sm={8} md={10} lg={10} className="d-none d-lg-block" style={{marginTop:"100px"}}>
           <p style={{fontSize:"25px", textAlign:"center", fontWeight:"bold"}}>My Donations</p>
           {loading? (
           <Loader/>

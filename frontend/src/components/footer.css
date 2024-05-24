@@ -1,0 +1,41 @@
+.footer {
+    background-color: #3C6B97;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+.links-column, .contact-column {
+    text-align: left;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    font-size: 24px;
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px;
+}
+
+.social-icons a:hover {
+    color: lightgray;
+}
+
+.copyright-row {
+    margin-top: 20px;
+}

@@ -1,0 +1,74 @@
+/* BankDetails.module.css */
+
+.bankDetails {
+    background-color: #ffffff; /* Assuming a white background */
+    color: #333333; /* Dark grey color for the text */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    margin: 20px 0; /* add margin for spacing */
+    line-height: 1.6; /* adjust line-height for better readability */
+    font-family: Arial, sans-serif; /* common font-family, adjust as needed */
+  }
+
+  .bankDetails h4 {
+    color: #333333; /* Example color for the heading */
+    margin-bottom: 16px; /* space below the heading */
+    padding-bottom: 8px; /* space between text and border */
+  }
+  
+  .bankDetails h3 {
+    color: #ff6b6b; /* Example color for the heading */
+    margin-bottom: 10px; /* space below the heading */
+    border-bottom: 2px dashed #cccccc; /* dashed line style */
+    padding-bottom: 5px; /* space between text and border */
+  }
+  
+  /* Style for the paragraphs for consistency and readability */
+  .bankDetails p {
+    margin: 8px 0;
+    font-size: 16px; /* adjust font-size as needed */
+  }
+
+  .buttonContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .uploadProofButton {
+    border: none;
+    display: inline-flex; /* Change to inline-flex to fit within layout */
+    padding: 0.75rem 1.5rem;
+    background-color: #488aec;
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(72, 138, 236, 0.19), 0 2px 4px -1px rgba(72, 138, 236, 0.07);
+    transition: all 0.6s ease;
+    cursor: pointer; /* Ensure it's clear this is a button */
+  }
+  
+.uploadProofButton:hover {
+    box-shadow: 0 10px 15px -3px rgba(32, 115, 239, 0.31), 0 4px 6px -2px rgba(72, 138, 236, 0.07);
+  }
+  
+  .uploadProofButton:focus,
+  .uploadProofButton:active {
+    opacity: 0.85;
+    box-shadow: none;
+  }
+  
+  .buttonIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  

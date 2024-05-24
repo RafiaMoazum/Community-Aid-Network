@@ -1,0 +1,110 @@
+/* AddCausePage.module.css */
+.mainFormContainer{
+    margin-top: 7rem;
+   padding-top: 30px; 
+   
+}
+
+.formContainer {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formHeading {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.field, .fileInput {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.errorMessage {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.submitButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submitButton:hover {
+    background-color: #0056b3;
+}
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.uploadBtn {
+    background-color: transparent;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.uploadBtn:hover {
+    background-color: #f0f0f0;
+}
+
+.fileInputHidden {
+    display: none;
+}
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.fileUploaded p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.fileRemove {
+    background-color: #e62e2e;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.fileRemove:hover {
+    background-color: #cc2929;
+}
+.field:focus, .fileInput:focus, .submitButton:focus, .uploadBtn:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.3); /* Add a blue glow */
+}

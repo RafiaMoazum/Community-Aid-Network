@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik';
 import FormField from '../common/FormField';
 import validationSchema from './validationSchema';
 import styles from './style.module.css'
+import { Container} from 'react-bootstrap';
 import  registerUser  from '../../../api/registrationApi';
 import Background from '../../../assets/images/registeration-bg.png'
 
@@ -44,6 +45,7 @@ const Signup = () => {
 
 
     return (
+        <Container fluid style={{minHeight:"1000px"}}>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
             <Form className={styles.mainForm} >
                 <div className={styles.sideImage}>
@@ -68,6 +70,7 @@ const Signup = () => {
                 
             </Form>
         </Formik>
+        </Container>
     );
 };
 
